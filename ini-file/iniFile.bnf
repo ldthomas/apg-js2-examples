@@ -1,0 +1,55 @@
+;
+; Ref: https://en.wikipedia.org: INI File
+;
+; comments begin with the semicolon, ";" and continue to the end of the line
+; comments may appear on valid section and value lines as well as blank lines
+; line ends may be CRLF, LF or CR
+; tabs, 0x09, may NOT occur in quoted strings
+;
+; keys may have multiple values
+;   - multiple values may be given as a comma delimited list on a single line
+;   - multiple values may be listed separately on separate lines with the same key name
+;
+; section names are optional
+;   - keys need not appear in a named section
+;
+; sections are "disjoint",
+;   - that is the keys in multiple occurrences of a section name are
+;   - simply joined together as if they appeared contiguously in a single section
+;
+; sections end at the beginning of a new section or the end of file
+;
+; section and key names are alphanumeric + underscore (must begin with alpha or underscore)
+; values that are not alphanumeric must be single or double quoted
+;
+; The grammar is designed to accept any string of ASCII characters without failure.
+; The "error productions", BadSectionLine, BadValueLine, BadBlankLine are meant to accept all lines
+; that are not otherwise correct blank, section or value lines. This is so that
+; parser callback functions can recognize input errors and report or react to them
+; in an application-dependent manner.
+;
+;
+IniFile         = *(BlankLine/ValueLine) *Section
+Section         = SectionLine *(BlankLine/ValueLine)
+SectionLine     = GoodSectionLine/BadSectionLine
+GoodSectionLine = "[" wsp SectionName wsp "]" wsp [comment] LineEnd
+BadSectionLine  = "[" *any LineEnd;
+ValueLine       = GoodValueLine/BadValueLine
+GoodValueLine   = KeyName wsp "=" wsp ValueArray wsp [comment] LineEnd
+BadValueLine    = (%d33-90/%d92-126) *any LineEnd
+ValueArray      = Value *(wsp "," wsp Value)
+SectionName     = (alpha/%d95) *(alpha/digit/%d95)
+KeyName         = (alpha/%d95) *(alpha/digit/%d95)
+Value           = DQuotedString/SQuotedString/AlphaDigit
+DQuotedString   = %d34 1*(%d32-33/%d35-126) %d34
+SQuotedString   = %d39 1*(%d32-38/%d40-126) %d39
+AlphaDigit      = 1*(alpha/digit)
+BlankLine       = GoodBlankLine/BadBlankLine
+GoodBlankLine   = wsp [comment] LineEnd
+BadBlankLine    = (%d32/%d9) wsp (%d33-58/%d60-126) *any LineEnd
+LineEnd         = %d13.10/%d10/%d13
+comment         = %d59 *any
+wsp             = *(%d32/%d9)
+alpha           = %d65-90/%d97-122
+digit           = %d48-57
+any             = %d32-126/%d9

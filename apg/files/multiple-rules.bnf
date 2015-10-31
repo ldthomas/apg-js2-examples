@@ -1,0 +1,6 @@
+rule = start Middle end
+start = "start /* C-type comment */" / "// C++ - style comment"
+Middle = %d35.36
+end = %d37-38 e_EMPTY
+rule = u_Name !start / &middle *end
+next =/ %d33

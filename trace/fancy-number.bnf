@@ -1,0 +1,27 @@
+;
+; Ref: Wikipedia, North American Numbering Plan
+;
+; specifications for demonstration purposes:
+;   1. MATCHED phrases
+;   2. EMPTY phrases
+;   3. NOMATCH phrases - backtracking
+;   4. operators, RNM, UDT, TLS, TBS, TRG
+;   5; non-ascii characters
+;
+phone-number = prefix phone-line
+prefix = *blank-line
+blank-line = *(%d32/%d9) [comment] line-end
+comment = ";" *any
+any = %d32-126/%d9
+phone-line = (regular-number / ornament-number / heavy-number) line-end
+regular-number = "(" area ")" u_office "-" subscriber
+ornament-number = %d10088 area %d10089 u_office %d8210 subscriber 
+heavy-number = %d10090 area %d10091 u_office %d9549 subscriber 
+
+area = gt-2 not-9 digit
+subscriber = 4digit
+
+gt-2 = %d50-57
+not-9 = %d48-56
+digit = %d48-57
+line-end = %d10

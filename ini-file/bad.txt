@@ -1,0 +1,37 @@
+
+;anonymous, unnamed section
+numbers = 1, 2 3
+names = "Sam Jones"
+names = <Jim>
+names = &amp;
+mixed = 'single', "double", 100, alpha
+names = "Mary Jane", "Bill Smith"
+numbers = 100, 101
+
+[<bad section name>]
+<bad key name> = 1,2,3
+key_1st_bad_section = 1
+
+; first part of section B
+[_codes] ; first part of section 1
+code_numbers = 1,2, 3
+code_names = news, live
+
+[<another bad section name>]
+key_2nd_bad_section = 1
+
+; first part of secton A
+[MONEY] ; first part of section 2
+dollars = 100, 200, 400
+cents = 21
+
+; continuation of section B
+[_codes] ; second part of section 1
+code_names = links
+code_numbers = 11, 12, 13
+more_codes = 99, 11, 22
+
+; continuation of section A
+[MONEY] ; second part of section 2
+dollars = 1001, 1002
+cents = 99

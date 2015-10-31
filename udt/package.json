@@ -1,0 +1,17 @@
+{
+  "name": "udt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "minimal.js",
+  "scripts": {
+    "test": "node minimal.js",
+    "minimal": "node minimal.js",
+    "stats": "node stats.js",
+    "trace": "node trace.js"
+  },
+  "author": "Lowell D. Thomas <lowell@coasttocoastresearch.com> (http://coasttocoastresearch.com)",
+  "license": "MIT",
+  "dependencies": {
+    "apglib": "file:///home/lowell/Projects/apgnpm/apglib/apglib-0.0.0.tgz"
+  }
+}

@@ -1,0 +1,3 @@
+rule = "rule"
+udt -= u_udt
+name = %d33.34

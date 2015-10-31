@@ -1,0 +1,53 @@
+{
+  "name": "apg-examples",
+  "version": "2.0.0",
+  "description": "Numerous examples of using apg and apg-lib.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./ast/xml.js",
+    "apg-help": "apg -h",
+    "apg-version": "apg -v",
+    "apg-crlf": "apg --in=./apg/files/mixedLineEnds.bnf --CRLF && hexdump -C ./apg/files/mixedLineEnds.bnf && hexdump -C ./apg/files/mixedLineEnds.bnf.crlf",
+    "apg-strict": "apg --in=./apg/files/lfOnly.bnf --strict && echo 'see ./html/grammar.html for grammar errors'",
+    "apg-errors": "apg --in=./apg/files/bad-elements.bnf && echo 'see ./html/grammar.html for grammar errors'",
+    "apg-rules": "apg --in=./apg/files/multiple-rules.bnf && echo 'see ./html/grammar.html for grammar errors'",
+    "apg-closed": "apg --in=./apg/files/not-closed.bnf && echo 'see ./html/grammar.html for grammar errors'",
+    "ast-xml": "node ./ast/xml.js",
+    "ast-translate": "node ./ast/translate.js",
+    "ini-file-ast": "node ./ini-file/ast-callbacks.js",
+    "ini-file-basic": "node ./ini-file/basic.js",
+    "ini-file-bad-input": "node ./ini-file/bad-input.js",
+    "ini-file-trace": "node ./ini-file/trace.js",
+    "simple-minimal": "node ./simple/minimal.js",
+    "simple-stats": "node ./simple/stats.js",
+    "simple-trace": "node ./simple/trace.js",
+    "trace-default": "node ./trace/default.js",
+    "trace-all-operators": "node ./trace/all-operators.js",
+    "trace-limited-lines": "node ./trace/limited-lines.js",
+    "trace-select-operators": "node ./trace/select-operators.js",
+    "trace-select-rules": "node ./trace/select-rules.js",
+    "udt-minimal": "node ./udt/minimal.js",
+    "udt-stats": "node ./udt/stats.js",
+    "udt-trace": "node ./udt/trace.js"
+  },
+  "files" : ["apg", "ast", "ini-files", "simple", "trace", "udt"],
+  "dependencies": {
+    "apg-lib": "2.x"
+  },
+  "keywords": [
+    "apg",
+    "parser",
+    "generator",
+    "examples",
+    "ABNF"
+  ],
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/ldthomas/apg-js2-examples.git"
+  },
+  "bugs" : {
+  "url" : "https://github.com/ldthomas/apg-js2-examples/issues"
+  },
+  "author": "Lowell D. Thomas <lowell@coasttocoastresearch.com> (http://coasttocoastresearch.com)",
+  "license": "BSD-3-Clause"
+}
