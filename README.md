@@ -8,9 +8,8 @@ and <a href="https://github.com/ldthomas/apg-js2-lib">apg-lib</a>, the supportin
 **Installation:**  
 *Requires node.js and npm*
 ```
-clone https://github.com/ldthomas/apg-js2-examples.git apg-examples
-cd apg-examples 
-npm init
+git clone https://github.com/ldthomas/apg-js2-examples.git examples
+cd examples 
 npm install apg-lib --save
 ```
 **The Examples:**  
@@ -52,6 +51,9 @@ for example, to run the apg test of the version number<br>
 and it should return <br>
 `JavaScript APG 2.0, Copyright (C) 2105 Lowell D. Thomas, all rights reserved`
 
+Except for `apg-help` and `apg-version` the examples output will mostly be in the `html` directory.
+View `index.html` in a browser. The various links there will show you the apg output. 
+
 To examine how the apg library examples work, see the related file. For example, the file `./ast/xml.js` will show you
 how to set up a parser that will generate an XML version of the AST.
 
@@ -66,6 +68,8 @@ The `ini-file` example is more substantial and structured more like a "real-worl
 and there are a number of ways to control the amount of output and still keep the trace records that will lead you to the error.
 Most of those techniques are illustrated here.<br>
 `udt-*`: an example using a User-Defined Terminal (UDT) - writing your own phrase recognition operator. 
+
+Most of these examples will generate output files in the `html` directory.
 
 **Documentation**  
 To be done.<br>
