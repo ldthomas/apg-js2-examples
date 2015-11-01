@@ -10,7 +10,7 @@ and <a href="https://github.com/ldthomas/apg-js2-lib">apg-lib</a>, the supportin
 ```
 git clone https://github.com/ldthomas/apg-js2-examples.git examples
 cd examples 
-npm install apg-lib --save
+npm install
 ```
 **The Examples:**  
 In the package.json file is the script object:
