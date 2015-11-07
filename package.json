@@ -14,7 +14,6 @@
     "apg-closed": "apg --in=./apg/files/not-closed.bnf && echo 'see ./html/grammar.html for grammar errors'",
     "ast-xml": "node ./ast/xml.js",
     "ast-translate": "node ./ast/translate.js",
-    "ini-file-ast": "node ./ini-file/ast-callbacks.js",
     "ini-file-basic": "node ./ini-file/basic.js",
     "ini-file-bad-input": "node ./ini-file/bad-input.js",
     "ini-file-trace": "node ./ini-file/trace.js",
@@ -28,7 +27,10 @@
     "trace-select-rules": "node ./trace/select-rules.js",
     "udt-minimal": "node ./udt/minimal.js",
     "udt-stats": "node ./udt/stats.js",
-    "udt-trace": "node ./udt/trace.js"
+    "udt-trace": "node ./udt/trace.js",
+    "sp-and": "node ./syntactic-predicates/and.js",
+    "sp-not": "node ./syntactic-predicates/not.js",
+    "sp-compound": "node ./syntactic-predicates/compound.js"
   },
   "files" : ["apg", "ast", "ini-files", "simple", "trace", "udt"],
   "dependencies": {

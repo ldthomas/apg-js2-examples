@@ -1,0 +1,8 @@
+;
+; C-style comment
+;
+comment = begin *(!stop any) end
+begin = "/*"
+stop = "*/"
+end = "*/"
+any = %d32-126 / %d9-10 / %d13

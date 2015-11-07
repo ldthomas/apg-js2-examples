@@ -1,0 +1,18 @@
+;
+; make-shift example to verify suppression of AST
+; within nested syntactic predicates
+; the "!anbncn" term expands to "!(&prefix consumeas bncn)"
+;
+; should accept strings like:
+; "aabb aaaaa aaabbbccc
+;
+comment = begin *(!anbncn any) end
+begin = anbn
+end = *"a" OtherBnCn
+any = %d32-126 / %d9-10 / %d13
+AnBnCn    = &Prefix ConsumeAs BnCn
+Prefix    = AnBn "c"
+ConsumeAs = *"a"
+AnBn      = "a" [AnBn] "b"
+BnCn      = "b" [BnCn] "c"
+OtherBnCn      = "b" [OtherBnCn] "c"

@@ -1,0 +1,10 @@
+;
+; text book example of a phrase which
+; cannot be described with a context-free grammar
+; but can be described using syntactic predicates
+;
+AnBnCn    = &Prefix ConsumeAs BnCn
+Prefix    = AnBn "c"
+ConsumeAs = *"a"
+AnBn      = "a" [AnBn] "b"
+BnCn      = "b" [BnCn] "c"
