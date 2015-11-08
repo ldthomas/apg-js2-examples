@@ -54,5 +54,6 @@ module.exports = function(grammar, callbacks, input){
 		}
 		process.exitCode = 1;
 		console.log(msg);
+		throw e;
 	}
 };

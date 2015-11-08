@@ -1,0 +1,3 @@
+start = color *("," color)
+color = "red" / "white" / "blue"
+dummy = u_red u_white u_blue u_yellow

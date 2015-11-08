@@ -1,5 +1,5 @@
 (function() {
-	var demo = require("./setup.js");
+	var setup = require("./setup.js");
 	var trace = new (require("apg-lib").trace)();
 	var number;
 	trace.filter.operators["tls"] = true;
@@ -14,5 +14,5 @@
 	number += ';TLS, TBS & TRG\n';
 	number += ';find the error\n';
 	number += '(555)888-999A\n';
-	demo(trace, number, "select-operators");
+	setup(trace, number, "select-operators");
 })();

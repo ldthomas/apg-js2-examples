@@ -32,7 +32,7 @@
     "sp-not": "node ./syntactic-predicates/not.js",
     "sp-compound": "node ./syntactic-predicates/compound.js"
   },
-  "files" : ["apg", "ast", "ini-files", "simple", "trace", "udt"],
+  "files" : ["apg", "ast", "ini-files", "simple", "trace", "udt", "syntactic-predicates", "execute-rule"],
   "dependencies": {
     "apg-lib": "2.x"
   },

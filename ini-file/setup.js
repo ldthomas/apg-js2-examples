@@ -141,5 +141,6 @@ module.exports = function(input, trace, stats){
 		}
 		process.exitCode = 1;
 		console.log(msg);
+		throw e;
 	}
 }

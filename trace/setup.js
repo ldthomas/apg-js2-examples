@@ -149,6 +149,6 @@ module.exports = function(trace, phoneNumber, name){
 		}
 		process.exitCode = 1;
 		console.log(msg);
+		throw e;
 	}
-	
 }

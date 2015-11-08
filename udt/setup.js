@@ -215,6 +215,6 @@ module.exports = function(doStats, doTrace){
 		}
 		process.exitCode = 1;
 		console.log(msg);
+		throw e;
 	}
-	
 }
