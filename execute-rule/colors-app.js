@@ -35,7 +35,6 @@
     parser.callbacks['u_red'] = callbacks.u_redCallback;
     parser.callbacks['u_white'] = callbacks.u_whiteCallback;
     parser.callbacks['u_yellow'] = callbacks.u_yellowCallback;
-
     // monitor
     data = [];
     parser.callbacks['color'] = callbacks.monitorCallback;
@@ -46,7 +45,6 @@
     html += parser.trace.displayHtml("monitor callback")
 
     // modify
-    data = [];
     parser.callbacks['color'] = callbacks.modifyCallback;
     result = parser.parse(grammar, startRule, inputCharacterCodes, data);
     console.log();
@@ -55,7 +53,6 @@
     html += parser.trace.displayHtml("modify callback")
 
     // evalUdt()
-    data = [];
     inputString = "red,white,blue,yellow";
     inputCharacterCodes = apglib.utils.stringToChars(inputString);
     parser.callbacks['color'] = callbacks.callUdtCallback;

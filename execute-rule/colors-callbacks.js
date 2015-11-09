@@ -7,7 +7,7 @@ exports.startCallback = function(result, chars, phraseIndex, data) {
   switch (result.state) {
   case id.ACTIVE:
     console.log("startCallback: start up: ACTIVE");
-    data = [];
+    data.length = 0;
     break;
   case id.EMPTY:
     console.log("startCallback: done: EMPTY");
