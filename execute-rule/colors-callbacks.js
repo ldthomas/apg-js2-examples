@@ -1,8 +1,9 @@
+// The callback functions for the `colors-app` application.
+// For the most part, these functions simply write the matched phrases to the console.
 "use strict;"
 var apglib = require("apg-lib");
 var id = apglib.ids;
-
-// rule name, RNM, callbacks
+// The start rule. Initialize the data object.
 exports.startCallback = function(result, chars, phraseIndex, data) {
   switch (result.state) {
   case id.ACTIVE:
@@ -26,6 +27,7 @@ exports.startCallback = function(result, chars, phraseIndex, data) {
     });
   }
 }
+// The *color* callback for the monitoring-only demonstration.
 exports.monitorCallback = function(result, chars, phraseIndex, data) {
   switch (result.state) {
   case id.ACTIVE:
@@ -44,65 +46,78 @@ exports.monitorCallback = function(result, chars, phraseIndex, data) {
     break;
   }
 }
+// The *color* callback for the parsing modification demonstration.
 exports.modifyCallback = function(result, chars, phraseIndex, data) {
   switch (result.state) {
   case id.ACTIVE:
     console.log("colorCallback: modify the result: fail no matter what the input is")
+    // By returning the `NOMATCH` state, indicate that no phrase was matched.
+    // Note that by returning any non-`ACTIVE` state, this `RNM` operator behaves
+    // exactly like a `UDT`. That is it matches any phrase the user likes,
+    // ignoring the phrases defined by the SABNF grammar.
+    // In fact, `UDT`s were originally developed to clean up the clumsiness of 
+    // doing it this way.
     result.state = id.NOMATCH;
     result.phraseLength = 0;
     break;
   case id.EMPTY:
-    console.log("colorCallback: monitor only: EMPTY: should never see this")
+    console.log("colorCallback: modify: EMPTY: should never see this")
     break;
   case id.MATCH:
-    console.log("colorCallback: monitor only: MATCH: should never see this")
+    console.log("colorCallback: modify: MATCH: should never see this")
     break;
   case id.NOMATCH:
-    console.log("colorCallback: monitor only: NOMATCH: should never see this")
+    console.log("colorCallback: modify: NOMATCH: should never see this")
     break;
   }
 }
+// The *color* callback for calling a `UDT` from a rule name.
 exports.callUdtCallback = function(result, chars, phraseIndex, data) {
   switch (result.state) {
   case id.ACTIVE:
     while(true){
-      result.evalUdt(0, phraseIndex, result);
+      // Calls the `UDT` with index 0 (the first one defined in the grammar - 
+      // see [`colors.js`](./colors.html))
+      result.evaluateUdt(0, phraseIndex, result);
       if(result.state === id.MATCH){
         break;
       }
-      result.evalUdt(1, phraseIndex, result);
+      // Calls the `UDT` with index 1.
+      result.evaluateUdt(1, phraseIndex, result);
       if(result.state === id.MATCH){
         break;
       }
-      result.evalUdt(2, phraseIndex, result);
+      // Calls the `UDT` with index 2.
+      result.evaluateUdt(2, phraseIndex, result);
       if(result.state === id.MATCH){
         break;
       }
-      result.evalUdt(3, phraseIndex, result);
+      // Calls the `UDT` with index 3.
+      result.evaluateUdt(3, phraseIndex, result);
       if(result.state === id.MATCH){
         break;
       }
       break;
     }
     if(result.state === id.MATCH){
-      console.log("colorCallback: call evalUdt() MATCH")
+      console.log("colorCallback: call evaluateUdt() MATCH")
       data.push(apglib.utils.charsToString(chars, phraseIndex, result.phraseLength));
     }else{
-      console.log("colorCallback: call evalUdt() NOMATCH")
+      console.log("colorCallback: call evaluateUdt() NOMATCH")
     }
     break;
   case id.EMPTY:
-    console.log("colorCallback: monitor only: EMPTY: should never see this")
+    console.log("colorCallback: evalutateUdt(): EMPTY: should never see this")
     break;
   case id.MATCH:
-    console.log("colorCallback: monitor only: MATCH: should never see this")
+    console.log("colorCallback: evalutateUdt(): MATCH: should never see this")
     break;
   case id.NOMATCH:
-    console.log("colorCallback: monitor only: NOMATCH: should never see this")
+    console.log("colorCallback: evalutateUdt(): NOMATCH: should never see this")
     break;
   }
 }
-// UDT callbacks
+// The `UDT` callback functions:
 exports.u_redCallback = function(result, chars, phraseIndex, data) {
   result.state = id.NOMATCH;
   result.phraseLength = 0;

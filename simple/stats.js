@@ -1,3 +1,4 @@
+// Parse the input string, collect and display the parsing statistics.
 (function(){
   var stats = true;
   var trace = false;

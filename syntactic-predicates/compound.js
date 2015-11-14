@@ -1,3 +1,6 @@
+// This is a check that `AST` suppression works correctly when
+// multiple syntactic predicate operators are nested within one another.
+// See the nested operators [here](./nested.html#section-3).
 (function(){
   "use strict";
   var setup = require("./setup.js");

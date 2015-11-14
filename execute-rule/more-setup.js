@@ -1,3 +1,7 @@
+// This module sets up an application to demonstrate how to call any arbitrary rule name `RNM`
+// callback function from any other callback function - in this case from a `UDT` callback.
+// (See the initial discussion for [`colors-app.js`](./colors-app.html) for the motivation 
+// and cautionary tales of doing this kind of craziness.)
 module.exports = function(udtcallback, title){
   "use strict";
   var nodeUtil = require("util");
@@ -7,27 +11,19 @@ module.exports = function(udtcallback, title){
       colors : true
     };
   try {
-    // get the required parser components
+    // See [`simple/setup.js`](../simple/setup.html) for the basics of setting up the parser.
     var apglib = require("apg-lib");
     var grammar = new (require("./more.js"))();
     var parser = new apglib.parser();
     parser.stats = new apglib.stats();
     parser.trace = new apglib.trace();
-    
-    // set the parser callback functions
     parser.callbacks["u_more"] = udtcallback;
-    
-    // get the input string (hard-coded for this example)
     var inputString = "start more more";
-    
-    // convert string to character codes
     var inputCharacterCodes = apglib.utils.stringToChars(inputString);
-    
-    // set the parser's "start rule"
     var startRule = 0;
+    /* parse the input string */
     var result = parser.parse(grammar, startRule, inputCharacterCodes);
-    
-    // display parser results
+    /* display parser results */
     console.log();
     console.log("the parser's results");
     console.dir(result, inspectOptions);
@@ -36,6 +32,8 @@ module.exports = function(udtcallback, title){
           + "' : parse failed")
     }
     var html = "";
+    // Returns the statistics and trace displays to the application.
+    // The application will decide how to display it.
     html += parser.stats.displayHtml("hits", title);
     html += parser.trace.displayHtml(title);
     return html;
