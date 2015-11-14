@@ -1,6 +1,6 @@
 {
   "name": "apg-examples",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Numerous examples of using apg and apg-lib.",
   "main": "index.js",
   "scripts": {
@@ -34,17 +34,18 @@
     "er-more": "node ./execute-rule/more-app.js",
     "er-colors": "node ./execute-rule/colors-app.js"
   },
-  "files" : 
-  ["apg",
-   "ast",
-   "execute-rule",
-   "ini-file",
-   "simple",
-   "syntactic-predicates",
-   "trace",
-   "udt",
-   "index.md",
-   "docco-gen"],
+  "files": [
+    "apg",
+    "ast",
+    "execute-rule",
+    "ini-file",
+    "simple",
+    "syntactic-predicates",
+    "trace",
+    "udt",
+    "index.md",
+    "docco-gen"
+  ],
   "dependencies": {
     "apg-lib": "2.x"
   },
@@ -55,12 +56,12 @@
     "examples",
     "ABNF"
   ],
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/ldthomas/apg-js2-examples.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ldthomas/apg-js2-examples.git"
   },
-  "bugs" : {
-  "url" : "https://github.com/ldthomas/apg-js2-examples/issues"
+  "bugs": {
+    "url": "https://github.com/ldthomas/apg-js2-examples/issues"
   },
   "author": "Lowell D. Thomas <lowell@coasttocoastresearch.com> (http://coasttocoastresearch.com)",
   "license": "BSD-3-Clause"
