@@ -44,7 +44,7 @@ behavior with them.<ul>
  for all of the demonstrations.</li>
 <li>[`syntactic-predicates/and.js`](./syntactic-predicates/and.html) - the classic non-context free grammar.
 Demonstrates the `AND(&)` operator.</li>
-<li>[`syntactic-predicates/not.js`](./syntactic-predicates/not.html) - the C-style comment and the `NOT(!)` operator.</li>
+<li>[`syntactic-predicates/not.js`](./syntactic-predicates/not.html) - the C-style comment. Demonstrates the `NOT(!)` operator.</li>
 <li>[`syntactic-predicates/compound.js`](./syntactic-predicates/compound.html) - 
 a make-shift grammar to demonstrate nesting of syntactic predicate operators.</li>
 </ul>
@@ -56,6 +56,13 @@ might be defined, parsed and translated into usable information.<ul>
 <li>[`ini-file/basic.js`](./ini-file/basic.html) - parsing out the ini file parts</li>
 <li>[`ini-file/bad-input.js`](./ini-file/bad-input.html) - how it performs with a badly-formed ini file</li>
 <li>[`ini-file/trace.js`](./ini-file/trace.html) - generate a trace of the parser</li>
+</ul>
+0. `ini-file/browser` - The same as above except that it demonstrates running it in a web page rather
+than as a desktop app. 
+<ul>
+<li>[`ini-file/browser/setup.js`](./ini-file/browser/setup.html) - when the page loads, initialize the textbox and set
+the event handler for the "parse" button.</li>
+<li>[`ini-file/browser/page.js`](./ini-file/browser/page.html) - executed when the "parse" button is clicked.</li>
 </ul>
 0. `execute-rule` - demonstrate the use of the parser's functions `executeRule()` and `executeUdt()`
 from user-written callback functions.

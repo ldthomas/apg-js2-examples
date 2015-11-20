@@ -68,6 +68,7 @@ The `ini-file` example is more substantial and structured more like a "real-worl
 - `ast-*`: examples of generating and using the AST
 - `er-*`: examples of using the `executeRule()` and `executeUdt()` callback functions.
 - `ini-file-*`: an example of a realistic parser of the <a href="https://en.wikipedia.org/wiki/INI_file">INI file format</a>.
+There is also a version of this example that runs in a browser web page. See below(\*).
 - `simple-*`: just the basics. Refer back to this for the details of getting a new application parser up and running.
 - `sp-*`: examples with the syntactic-predicate operators `AND(&)` and `NOT(!)`
 - `trace-*`: tracing the parse tree is the primary debugging tool. But tracing can also generate a lot of output
@@ -76,6 +77,15 @@ Most of those techniques are illustrated here.
 - `udt-*`: an example using a User-Defined Terminal (UDT) - writing your own phrase recognition operator. 
 
 Most of these examples will generate output files in the `html` directory.
+
+(\*) In the directory `apg-examples/ini-file/browser` is an example of running the `ini-file` example in a web page.
+View `apg-examples/ini-file/browser/browser.html` to see the example. To modify the example it is necessary to
+regenerate the file `bundle.js`.
+```
+npm install -g browserify
+cd apg-examples/ini-file/browser
+browserify setup.js > bundle.js
+``` 
 
 **Documentation:**  
 The documentation is in the code in [`docco`](https://jashkenas.github.io/docco/) format.

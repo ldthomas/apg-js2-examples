@@ -47,7 +47,8 @@
     "docco-gen"
   ],
   "dependencies": {
-    "apg-lib": "2.x"
+    "apg-lib": "2.x",
+    "jquery" : "*"
   },
   "keywords": [
     "apg",

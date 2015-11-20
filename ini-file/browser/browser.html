@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Example, JavaScript APG 2.0</title>
+<meta charset="utf-8">
+<script src="bundle.js" charset="utf-8"></script>
+<link href="sinorca-screen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>JavaScript APG Version 2.0 Parsing Library</h1>
+  <h2>An example of use in a browser application</h2>
+	<p>
+		<b>Example:</b> <a href="https://en.wikipedia.org/wiki/INI_file">INI file</a> - an initialization file format.<br>
+		(see <code>apg-examples/ini-file/ini-file.js</code> for the grammar used)
+	</p>
+	<p>
+		<b>The Input String:</b> (edit and click "parse")
+	</p>
+	<p>
+		<textarea id="input-string" wrap="off" rows="20" cols="45"></textarea>
+<br><input type="checkbox" id="trace" value="trace">trace <input type="checkbox" id="stats" value="stats">stats
+		<br> <input type="button" id="parser" value="parse" />
+	</p>
+	<h3>The Parser's Output:</h3>
+	<div id="parser-output">
+		<!-- the "main" program will write its results here  -->
+	</div>
+</body>
+
+</html>
