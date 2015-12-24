@@ -74,11 +74,11 @@ module.exports = function() {
     parser.ast.callbacks["office"] = office;
     parser.ast.callbacks["subscriber"] = subscriber;
     /* use a hard coded input string */
-    var inputString = "(555)234-5678";
+    var inputString = "xxxx(555)234-5678xxxx";
     var inputCharacterCodes = apglib.utils.stringToChars(inputString);
     var startRule = "phone-number";
     /* parse the string here, generating an `AST` */
-    var result = parser.parse(grammar, startRule, inputCharacterCodes);
+    var result = parser.parseSubstring(grammar, startRule, inputCharacterCodes, 4, 13);
     console.log();
     console.log("the parser's results");
     console.dir(result, inspectOptions);
