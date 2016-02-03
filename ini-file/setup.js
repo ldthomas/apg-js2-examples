@@ -37,15 +37,14 @@ module.exports = function(input, trace, stats) {
     if (typeof (input) !== "string") {
       throw new Error(thisFileName + "invalid input string");
     }
-    if (trace === null || typeof (trace) !== "object"
-        || trace.traceObject !== "traceObject") {
+    if (trace === null || typeof (trace) !== "object" || trace.traceObject !== "traceObject") {
       trace = null;
     }
-    if (stats === null || typeof (stats) !== "object"
-        || stats.statsObject !== "statsObject") {
+    if (stats === null || typeof (stats) !== "object" || stats.statsObject !== "statsObject") {
       stats = null;
     }
-    // Get the required parser components (see [`simple/setup.js`](../simple/setup.html) for the basics of setting up the parser).
+    // Get the required parser components (see [`simple/setup.js`](../simple/setup.html) for the basics of setting up the
+    // parser).
     var apglib = require("apg-lib");
     var parser = new apglib.parser();
     var grammar = new (require("./ini-file.js"))();
@@ -78,10 +77,11 @@ module.exports = function(input, trace, stats) {
         console.log(error);
       });
     }
-    var html, pageName;
+    var html, dir, pageName;
     if (parser.stats !== null) {
       // Display stats, if requested.
-      var dir = "html";
+      dir = "html";
+      pageName = dir + "/ini-file-stats.html";
       try {
         fs.mkdirSync(dir);
       } catch (e) {
@@ -89,19 +89,15 @@ module.exports = function(input, trace, stats) {
           throw new Error("fs.mkdir failed: " + e.message);
         }
       }
-      html = parser.stats.displayHtml("hits", "rules ordered by hit count");
-      pageName = dir + "/ini-file-stats.html";
-      result = apglib.utils.htmlToPage(html, pageName);
-      if (result.hasErrors === true) {
-        throw result;
-      }
+      html = parser.stats.toHtmlPage("hits", "rules ordered by hit count", "IniFile Stats");
+      fs.writeFileSync(pageName, html);
       console.log();
-      console.log('view "' + pageName
-          + '" in any browser to display parsing statistics');
+      console.log('view "' + pageName + '" in any browser to display parsing statistics');
     }
     if (parser.trace !== null) {
       // Display the trace, if requested
-      var dir = "html";
+      dir = "html";
+      pageName = dir + "/ini-file-trace.html";
       try {
         fs.mkdirSync(dir);
       } catch (e) {
@@ -109,15 +105,10 @@ module.exports = function(input, trace, stats) {
           throw new Error("fs.mkdir failed: " + e.message);
         }
       }
-      pageName = dir + "/ini-file-trace.html";
-      html = parser.trace.displayHtml("IniFile Trace", "ascii");
-      result = apglib.utils.htmlToPage(html, pageName);
-      if (result.hasErrors === true) {
-        throw result;
-      }
+      html = parser.trace.toHtmlPage("ascii", "IniFile Trace", "IniFile Trace");
+      fs.writeFileSync(pageName, html);
       console.log();
-      console.log('view "' + pageName
-          + '" in any browser to display parser\'s trace');
+      console.log('view "' + pageName + '" in any browser to display parser\'s trace');
     }
     /* object to hold the parsed data */
     var data = {};

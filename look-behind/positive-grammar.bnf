@@ -1,0 +1,2 @@
+rule = *text &&" end"
+text = %d32-126

@@ -34,8 +34,8 @@ module.exports = function(udtcallback, title){
     var html = "";
     // Returns the statistics and trace displays to the application.
     // The application will decide how to display it.
-    html += parser.stats.displayHtml("hits", title);
-    html += parser.trace.displayHtml(title);
+    html += parser.stats.toHtml("hits", title);
+    html += parser.trace.toHtml(title);
     return html;
   } catch (e) {
     var msg = "\nEXCEPTION THROWN: ";

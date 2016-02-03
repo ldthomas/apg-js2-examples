@@ -1,12 +1,15 @@
 #!/bin/bash
 docco -l classic -o "docs" index.md README.md
 docco -l classic -o "docs/ast" ast/*.js
+docco -l classic -o "docs/back-reference" back-reference/*.js
 docco -l classic -o "docs/execute-rule" execute-rule/*.js
 docco -l classic -o "docs/ini-file" ini-file/*.js
 docco -l classic -o "docs/ini-file/browser" ini-file/browser/setup.js
 docco -l classic -o "docs/ini-file/browser" ini-file/browser/page.js
+docco -l classic -o "docs/look-ahead" look-ahead/*.js
+docco -l classic -o "docs/look-behind" look-behind/*.js
 docco -l classic -o "docs/simple" simple/*.js
-docco -l classic -o "docs/syntactic-predicates" syntactic-predicates/*.js
+docco -l classic -o "docs/substrings" substrings/*.js
 docco -l classic -o "docs/trace" trace/*.js
 docco -l classic -o "docs/udt" udt/*.js
 exit 0

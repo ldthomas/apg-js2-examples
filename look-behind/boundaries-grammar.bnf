@@ -1,0 +1,4 @@
+cat-text = 10any cat *any
+any = %d32-126
+word-char = %d64-90 / %d97-122
+cat = !!word-char "cat" !word-char

@@ -1,3 +1,0 @@
-S = "<" name ">" S "</" \name ">" / "..."
-name = alphanum
-alphanum        = (%d97-122/%d65-90) *(%d97-122/%d65-90/%d48-57)

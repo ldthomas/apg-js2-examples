@@ -44,7 +44,7 @@ module.exports = function(grammar, callbacks, input) {
     // Generate and display the `AST` in `XML` format,
     // demonstrating that the syntactic predicate phrases are not present
     // even though we have requested to see them on the `AST`.
-    var xml = parser.ast.displayXml();
+    var xml = parser.ast.toXml();
     console.log();
     console.log("AST in XML format");
     console.log(xml);

@@ -24,32 +24,32 @@ module.exports = function(){
   /* CALLBACK LIST PROTOTYPE (true, false or function reference) */
   this.callbacks = [];
   this.callbacks['alphanum'] = false;
+  this.callbacks['html'] = false;
   this.callbacks['name'] = false;
-  this.callbacks['s'] = false;
 
   /* OBJECT IDENTIFIER (for internal parser use) */
   this.grammarObject = 'grammarObject';
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'S', lower: 's', index: 0, isBkr: false, hasBkr: true};
-  this.rules[1] = {name: 'name', lower: 'name', index: 1, isBkr: true, hasBkr: false};
-  this.rules[2] = {name: 'alphanum', lower: 'alphanum', index: 2, isBkr: false, hasBkr: false};
+  this.rules[0] = {name: 'HTML', lower: 'html', index: 0, isBkr: false};
+  this.rules[1] = {name: 'name', lower: 'name', index: 1, isBkr: true};
+  this.rules[2] = {name: 'alphanum', lower: 'alphanum', index: 2, isBkr: false};
 
   /* UDTS */
   this.udts = [];
 
   /* OPCODES */
-  /* S */
+  /* HTML */
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 1, children: [1,9]};// ALT
   this.rules[0].opcodes[1] = {type: 2, children: [2,3,4,5,6,7,8]};// CAT
   this.rules[0].opcodes[2] = {type: 9, string: [60]};// TLS
   this.rules[0].opcodes[3] = {type: 4, index: 1};// RNM(name)
   this.rules[0].opcodes[4] = {type: 9, string: [62]};// TLS
-  this.rules[0].opcodes[5] = {type: 4, index: 0};// RNM(S)
+  this.rules[0].opcodes[5] = {type: 4, index: 0};// RNM(HTML)
   this.rules[0].opcodes[6] = {type: 9, string: [60,47]};// TLS
-  this.rules[0].opcodes[7] = {type: 11, index: 1, lower: 'name', insensitive: true};// BKR(\%iname)
+  this.rules[0].opcodes[7] = {type: 11, index: 1, lower: 'name', bkrCase: 64, bkrMode: 62};// BKR(\%i%pname)
   this.rules[0].opcodes[8] = {type: 9, string: [62]};// TLS
   this.rules[0].opcodes[9] = {type: 9, string: [46,46,46]};// TLS
 
@@ -72,9 +72,9 @@ module.exports = function(){
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){
     var str = "";
-    str += "S = \"<\" name \">\" S \"</\" \\name \">\" / \"...\"\n";
-    str += "name = alphanum\n";
-    str += "alphanum        = (%d97-122/%d65-90) *(%d97-122/%d65-90/%d48-57)\n";
+    str += "HTML        = \"<\" name \">\" HTML \"</\" \\%i%pname \">\" / \"...\"\n";
+    str += "name     = alphanum\n";
+    str += "alphanum = (%d97-122/%d65-90) *(%d97-122/%d65-90/%d48-57)\n";
     return str;
   }
 }

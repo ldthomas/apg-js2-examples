@@ -24,27 +24,27 @@ module.exports = function(){
   /* CALLBACK LIST PROTOTYPE (true, false or function reference) */
   this.callbacks = [];
   this.callbacks['a'] = false;
-  this.callbacks['s'] = false;
+  this.callbacks['simple'] = false;
 
   /* OBJECT IDENTIFIER (for internal parser use) */
   this.grammarObject = 'grammarObject';
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'S', lower: 's', index: 0, isBkr: false, hasBkr: true};
-  this.rules[1] = {name: 'A', lower: 'a', index: 1, isBkr: true, hasBkr: false};
+  this.rules[0] = {name: 'simple', lower: 'simple', index: 0, isBkr: false};
+  this.rules[1] = {name: 'A', lower: 'a', index: 1, isBkr: true};
 
   /* UDTS */
   this.udts = [];
 
   /* OPCODES */
-  /* S */
+  /* simple */
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 2, children: [1,2,3,4]};// CAT
   this.rules[0].opcodes[1] = {type: 4, index: 1};// RNM(A)
-  this.rules[0].opcodes[2] = {type: 11, index: 1, lower: 'a', insensitive: true};// BKR(\%iA)
-  this.rules[0].opcodes[3] = {type: 11, index: 1, lower: 'a', insensitive: true};// BKR(\%iA)
-  this.rules[0].opcodes[4] = {type: 11, index: 1, lower: 'a', insensitive: false};// BKR(\%sA)
+  this.rules[0].opcodes[2] = {type: 11, index: 1, lower: 'a', bkrCase: 64, bkrMode: 61};// BKR(\%i%uA)
+  this.rules[0].opcodes[3] = {type: 11, index: 1, lower: 'a', bkrCase: 64, bkrMode: 61};// BKR(\%i%uA)
+  this.rules[0].opcodes[4] = {type: 11, index: 1, lower: 'a', bkrCase: 63, bkrMode: 61};// BKR(\%s%uA)
 
   /* A */
   this.rules[1].opcodes = [];
@@ -55,7 +55,7 @@ module.exports = function(){
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){
     var str = "";
-    str += "S = A \\A \\%iA \\%sA\n";
+    str += "simple = A \\A \\%iA \\%sA\n";
     str += "A = \"x\" / \"y\"\n";
     return str;
   }

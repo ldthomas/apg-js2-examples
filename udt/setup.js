@@ -5,6 +5,7 @@ module.exports = function(doStats, doTrace) {
   "use strict";
   var nodeUtil = require("util");
   var fs = require("fs");
+  var html, page, dirName, pageName;
   var inspectOptions = {
     showHidden : true,
     depth : null,
@@ -116,12 +117,13 @@ module.exports = function(doStats, doTrace) {
     console.log("  subscriber: " + phoneParts["subscriber"]);
     if (doStats) {
       // If requested, display the stats in all orderings on a web page.
-      var html = "";
-      html += parser.stats.displayHtml("ops", "ops-only stats");
-      html += parser.stats.displayHtml("index", "rules ordered by index");
-      html += parser.stats.displayHtml("alpha", "rules ordered alphabetically");
-      html += parser.stats.displayHtml("hits", "rules ordered by hit count");
+      html = "";
+      html += parser.stats.toHtml("ops", "ops-only stats");
+      html += parser.stats.toHtml("index", "rules ordered by index");
+      html += parser.stats.toHtml("alpha", "rules ordered alphabetically");
+      html += parser.stats.toHtml("hits", "rules ordered by hit count");
       var dir = "html";
+      var name = dir + "/udt-stats.html";
       try {
         fs.mkdirSync(dir);
       } catch (e) {
@@ -129,17 +131,16 @@ module.exports = function(doStats, doTrace) {
           throw new Error("fs.mkdir failed: " + e.message);
         }
       }
-      result = apglib.utils.htmlToPage(html, dir + "/udt-stats.html");
-      if (result.hasErrors === true) {
-        throw new Error(result.errors[0]);
-      }
+      html = apglib.utils.htmlToPage(html, "udt-stats");
+      fs.writeFileSync(name, html);
       console.log();
-      console.log('view "html/udt-stats.html" in any browser to display parsing statistics');
+      console.log('view "'+name+'" in any browser to display parsing statistics');
     }
     if (doTrace) {
       // If requested, display the trace on a web page.
-      var html = parser.trace.displayHtml("good phone number, default trace");
+      html = parser.trace.toHtmlPage("ascii", "udt trace");
       var dir = "html";
+      var name = dir + "/udt-trace.html";
       try {
         fs.mkdirSync(dir);
       } catch (e) {
@@ -147,12 +148,9 @@ module.exports = function(doStats, doTrace) {
           throw new Error("fs.mkdir failed: " + e.message);
         }
       }
-      result = apglib.utils.htmlToPage(html, dir + "/udt-trace.html");
-      if (result.hasErrors === true) {
-        throw new Error(result.errors[0]);
-      }
+      fs.writeFileSync(name, html);
       console.log();
-      console.log('view "html/udt-trace.html" in any browser to display parser\'s trace');
+      console.log('view "'+name+'" in any browser to display parser\'s trace');
     }
 
   } catch (e) {

@@ -1,0 +1,8 @@
+rule = 14any (left-to-right / right-to-left)
+left-to-right = &&ltr-comment "$"
+right-to-left = &&rtl-comment "$"
+ltr-comment = begin *(!end any) end
+rtl-comment = begin *(any !!begin) end
+begin = "/*"
+end = "*/"
+any = %d32-126 / %d9-10 / %d13

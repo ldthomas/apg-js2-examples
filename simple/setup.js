@@ -143,11 +143,12 @@ module.exports = function(doStats, doTrace) {
       // parsing statistics. Finally, all options will be displayed
       // on a single web page. See the page `html/simple-stats.html` for the results.
       var html = "";
-      html += parser.stats.displayHtml("ops", "ops-only stats");
-      html += parser.stats.displayHtml("index", "rules ordered by index");
-      html += parser.stats.displayHtml("alpha", "rules ordered alphabetically");
-      html += parser.stats.displayHtml("hits", "rules ordered by hit count");
+      html += parser.stats.toHtml("ops", "ops-only stats");
+      html += parser.stats.toHtml("index", "rules ordered by index");
+      html += parser.stats.toHtml("alpha", "rules ordered alphabetically");
+      html += parser.stats.toHtml("hits", "rules ordered by hit count");
       var dir = "html";
+      var name = dir + "/simple-stats.html";
       try {
         fs.mkdirSync(dir);
       } catch (e) {
@@ -155,20 +156,19 @@ module.exports = function(doStats, doTrace) {
           throw new Error("fs.mkdir failed: " + e.message);
         }
       }
-      result = utils.htmlToPage(html, dir + "/simple-stats.html");
-      if (result.hasErrors === true) {
-        throw new Error(result.errors[0]);
-      }
+      html = utils.htmlToPage(html, "simple-stats");
+      fs.writeFileSync(name, html);
       console.log();
-      console.log('view "html/simple-stats.html" in any browser to display parsing statistics');
+      console.log('view "'+name+'" in any browser to display parsing statistics');
     }
 
     if (doTrace) {
       // This section will demonstrate the display of the
       // parser's trace.
       // See the page `html/simple-trace.html` for the results.
-      var html = parser.trace.displayHtml("good phone number, default trace");
+      var html = parser.trace.toHtmlPage("ascii", "good phone number, default trace");
       var dir = "html";
+      var name = dir + "/simple-trace.html";
       try {
         fs.mkdirSync(dir);
       } catch (e) {
@@ -176,12 +176,9 @@ module.exports = function(doStats, doTrace) {
           throw new Error("fs.mkdir failed: " + e.message);
         }
       }
-      result = utils.htmlToPage(html, dir + "/simple-trace.html");
-      if (result.hasErrors === true) {
-        throw new Error(result.errors[0]);
-      }
+      fs.writeFileSync(name, html);
       console.log();
-      console.log('view "html/simple-trace.html" in any browser to display parser\'s trace');
+      console.log('view "'+name+'" in any browser to display parser\'s trace');
     }
   } catch (e) {
     var msg = "\nEXCEPTION THROWN: \n";

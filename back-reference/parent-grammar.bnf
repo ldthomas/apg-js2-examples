@@ -1,0 +1,3 @@
+parent = A B \%pA
+B = A "b"
+A = "x" / "y"

@@ -36,11 +36,21 @@
     var inputString;
     var inputCharacterCodes;
     var startRule;
-    var html = "";
+    var html, pageName;
     var apglib = require("apg-lib");
     var grammar = new (require("./colors.js"))();
     var callbacks = require("./colors-callbacks.js");
     var parser = new apglib.parser();
+    /* make sure we have an output directory */
+    var dir = "html";
+    try{
+      fs.mkdirSync(dir);
+    }catch(e){
+      if (e.code !== "EEXIST") {
+        throw new Error("fs.mkdir failed: " + e.message);
+      }
+    }
+    /* set up the parser */
     parser.trace = new apglib.trace();
     inputString = "red,white,blue";
     inputCharacterCodes = apglib.utils.stringToChars(inputString);
@@ -60,7 +70,7 @@
     console.log();
     console.log("the monitor callback results");
     console.dir(result, inspectOptions);
-    html += parser.trace.displayHtml("monitor callback")
+    html = parser.trace.toHtml(null, "monitor callback")
     // In this case, the `color` callback function actually modifies the parsing process
     // by returning a non-`ACTIVE` state. The action in this case is to always fail,
     // which is simply to demonstrate how modification from a syntax callback function can be done.
@@ -69,7 +79,7 @@
     console.log();
     console.log("the modify callback results");
     console.dir(result, inspectOptions);
-    html += parser.trace.displayHtml("modify callback")
+    html += parser.trace.toHtml(null, "modify callback")
     // In this case the `color` callback function modifies the parsing process by calling a `UDT` function to do its work.
     // In addition to accepting the colors red, white and blue, it uses a `UDT` to accept yellow as well.
     inputString = "red,white,blue,yellow";
@@ -79,25 +89,11 @@
     console.log();
     console.log("the evaluateUdt() callback results");
     console.dir(result, inspectOptions);
-    html += parser.trace.displayHtml("evaluateUdt() callback")
-    // Finally, display the trace of all three parsers on a single web page.
-    // You can see a good picture of the actions performed in each case by
-    // looking at the `RNM` and `UDT` operations.
-    var dir = "html";
-    var filename = dir + "/colors-evaluateUdt.html"
-    try {
-      fs.mkdirSync(dir);
-    } catch (e) {
-      if (e.code !== "EEXIST") {
-        throw new Error("fs.mkdir failed: " + e.message);
-      }
-    }
-    result = apglib.utils.htmlToPage(html, filename);
-    if (result.hasErrors === true) {
-      throw new Error(result.errors[0]);
-    }
-    console.log();
-    console.log('view "' + filename + '" in any browser to display parsing trace comparison');
+    html += parser.trace.toHtml("ascii","evaluateUdt() callback")
+    html = apglib.utils.htmlToPage(html, "colors app");
+    pageName = dir + "/colors-app.html";
+    fs.writeFileSync(pageName, html);
+    console.log('view "' + pageName + '" in any browser to display parsing trace comparison');
   } catch (e) {
     var msg = "\nEXCEPTION THROWN: ";
     +"\n";

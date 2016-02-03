@@ -18,22 +18,13 @@ module.exports = function(trace, phoneNumber, name) {
     depth : null,
     colors : true
   };
-  var charsToHtml = function(chars) {
-    var html = "";
-    chars.forEach(function(char) {
-      if (char === 10) {
-        html += "<br>";
-      } else {
-        html += "&#" + char + ";";
-      }
-    });
-    return html;
-  }
   try {
     var apglib = require("apg-lib");
     var parser = new apglib.parser();
     var grammar = new (require("./fancy-number.js"))();
     var id = apglib.ids;
+
+    // The u_office(), hand-written UDT.
     parser.callbacks["u_office"] = function(result, chars, phraseIndex, data) {
       var matchFound = false;
       while (true) {
@@ -76,8 +67,7 @@ module.exports = function(trace, phoneNumber, name) {
     }
     if (typeof (phoneNumber) === "string") {
       inputCharacterCodes = apglib.utils.stringToChars(phoneNumber);
-    } else if (Array.isArray(phoneNumber)
-        && typeof (phoneNumber[0] === "number")) {
+    } else if (Array.isArray(phoneNumber) && typeof (phoneNumber[0] === "number")) {
       inputCharacterCodes = phoneNumber;
     } else {
       throw new Error(thisFileName + "input phoneNumber must be string or array of integers");
@@ -87,11 +77,11 @@ module.exports = function(trace, phoneNumber, name) {
     }
     var result = parser.parse(grammar, 0, inputCharacterCodes);
     console.log();
-    console.log("the parser's results");
+    console.log("parser input:");
+    console.log(phoneNumber);
+    console.log();
+    console.log("parser results");
     console.dir(result, inspectOptions);
-    var input = "<p>input string:<br>\n";
-    input += charsToHtml(inputCharacterCodes);
-    input += "\n</p>\n";
     var html;
     var pageName;
     var dir = "html";
@@ -102,36 +92,25 @@ module.exports = function(trace, phoneNumber, name) {
         throw new Error("fs.mkdir failed: " + e.message);
       }
     }
-    pageName = dir + "/trace-" + name + "-ascii.html";
+    pageName = dir + "/trace-" + name + ".html";
+
     // Display the trace in ASCII format.
-    html = input + parser.trace.displayHtml(name, "ascii");
-    result = apglib.utils.htmlToPage(html, pageName);
-    if (result.hasErrors === true) {
-      throw new Error(result.errors[0]);
-    }
-    console.log();
-    console.log('view "' + pageName + '" in any browser to display parser\'s trace');
+    html = parser.trace.toHtml("ascii", "ASCII display");
+
     // Display the trace in hexidecimal format.
-    pageName = dir + "/trace-" + name + "-hex.html";
-    html = input + parser.trace.displayHtml(name, "hex");
-    result = apglib.utils.htmlToPage(html, pageName);
-    if (result.hasErrors === true) {
-      throw new Error(result.errors[0]);
-    }
-    console.log();
-    console.log('view "' + pageName + '" in any browser to display parser\'s trace');
+    html += parser.trace.toHtml("hex", "hexidecimal display");
+
     // Display the trace in decimal format.
-    pageName = dir + "/trace-" + name + "-dec.html";
-    html = input + parser.trace.displayHtml(name, "dec");
-    result = apglib.utils.htmlToPage(html, pageName);
-    if (result.hasErrors === true) {
-      throw new Error(result.errors[0]);
-    }
+    html += parser.trace.toHtml("dec", "decimal display");
+
+    // Display the trace in unicode format.
+    html += parser.trace.toHtml("uni", "UNICODE display");
+    html = apglib.utils.htmlToPage(html, name);
+    fs.writeFileSync(pageName, html);
     console.log();
     console.log('view "' + pageName + '" in any browser to display parser\'s trace');
   } catch (e) {
-    var msg = "\nEXCEPTION THROWN: ";
-    +"\n";
+    var msg = "\nEXCEPTION THROWN:\n";
     if (e instanceof Error) {
       msg += e.name + ": " + e.message;
     } else if (typeof (e) === "string") {

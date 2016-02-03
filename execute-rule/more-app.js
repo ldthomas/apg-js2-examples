@@ -42,8 +42,7 @@
     var phrase = phraseIndex;
     var length = 0;
     while (phrase + 5 <= chars.length) {
-      if ((chars[phrase] === 32) && (chars[phrase + 1] === 109)
-          && (chars[phrase + 2] === 111) && (chars[phrase + 3] === 114)
+      if ((chars[phrase] === 32) && (chars[phrase + 1] === 109) && (chars[phrase + 2] === 111) && (chars[phrase + 3] === 114)
           && (chars[phrase + 4] === 101)) {
         length += 5;
         phrase += 5;
@@ -75,11 +74,8 @@
   /* get the phrase with a call to evaluateRule() */
   html += setup(evalRuleCallback, "more parsed with evaluateRule()");
   // Display it all on the web page.
-  var result = apglib.utils.htmlToPage(html, filename);
-  if (result.hasErrors === true) {
-    throw new Error(result.errors[0]);
-  }
+  html = apglib.utils.htmlToPage(html, "more app");
+  fs.writeFileSync(filename, html);
   console.log();
-  console.log('view "' + filename
-      + '" in any browser to display parsing stats and trace comparison');
+  console.log('view "' + filename + '" in any browser to display parsing stats and trace comparison');
 })();

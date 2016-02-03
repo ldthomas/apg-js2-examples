@@ -1,0 +1,3 @@
+universal = A B \%uA
+B = A "b"
+A = "x" / "y"

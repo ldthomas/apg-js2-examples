@@ -5,10 +5,10 @@ module.exports = function(){
   // SUMMARY
   //      rules = 3
   //       udts = 0
-  //    opcodes = 9
+  //    opcodes = 10
   //        ALT = 1
   //        CAT = 2
-  //        RNM = 2
+  //        RNM = 3
   //        UDT = 0
   //        BKR = 1
   //        REP = 0
@@ -25,45 +25,46 @@ module.exports = function(){
   this.callbacks = [];
   this.callbacks['a'] = false;
   this.callbacks['b'] = false;
-  this.callbacks['s'] = false;
+  this.callbacks['universal'] = false;
 
   /* OBJECT IDENTIFIER (for internal parser use) */
   this.grammarObject = 'grammarObject';
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'S', lower: 's', index: 0, isBkr: false, hasBkr: true};
-  this.rules[1] = {name: 'A', lower: 'a', index: 1, isBkr: true, hasBkr: false};
-  this.rules[2] = {name: 'B', lower: 'b', index: 2, isBkr: false, hasBkr: false};
+  this.rules[0] = {name: 'universal', lower: 'universal', index: 0, isBkr: false};
+  this.rules[1] = {name: 'B', lower: 'b', index: 1, isBkr: false};
+  this.rules[2] = {name: 'A', lower: 'a', index: 2, isBkr: true};
 
   /* UDTS */
   this.udts = [];
 
   /* OPCODES */
-  /* S */
+  /* universal */
   this.rules[0].opcodes = [];
-  this.rules[0].opcodes[0] = {type: 2, children: [1,2]};// CAT
-  this.rules[0].opcodes[1] = {type: 4, index: 2};// RNM(B)
-  this.rules[0].opcodes[2] = {type: 11, index: 1, lower: 'a', insensitive: true};// BKR(\%iA)
-
-  /* A */
-  this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 1, children: [1,2]};// ALT
-  this.rules[1].opcodes[1] = {type: 9, string: [120]};// TLS
-  this.rules[1].opcodes[2] = {type: 9, string: [121]};// TLS
+  this.rules[0].opcodes[0] = {type: 2, children: [1,2,3]};// CAT
+  this.rules[0].opcodes[1] = {type: 4, index: 2};// RNM(A)
+  this.rules[0].opcodes[2] = {type: 4, index: 1};// RNM(B)
+  this.rules[0].opcodes[3] = {type: 11, index: 2, lower: 'a', bkrCase: 64, bkrMode: 61};// BKR(\%i%uA)
 
   /* B */
+  this.rules[1].opcodes = [];
+  this.rules[1].opcodes[0] = {type: 2, children: [1,2]};// CAT
+  this.rules[1].opcodes[1] = {type: 4, index: 2};// RNM(A)
+  this.rules[1].opcodes[2] = {type: 9, string: [98]};// TLS
+
+  /* A */
   this.rules[2].opcodes = [];
-  this.rules[2].opcodes[0] = {type: 2, children: [1,2]};// CAT
-  this.rules[2].opcodes[1] = {type: 4, index: 1};// RNM(A)
-  this.rules[2].opcodes[2] = {type: 9, string: [98]};// TLS
+  this.rules[2].opcodes[0] = {type: 1, children: [1,2]};// ALT
+  this.rules[2].opcodes[1] = {type: 9, string: [120]};// TLS
+  this.rules[2].opcodes[2] = {type: 9, string: [121]};// TLS
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){
     var str = "";
-    str += "S = B \\A\n";
-    str += "A = \"x\" / \"y\"\n";
+    str += "universal = A B \\%uA\n";
     str += "B = A \"b\"\n";
+    str += "A = \"x\" / \"y\"\n";
     return str;
   }
 }

@@ -1,0 +1,5 @@
+phone-number = "(" area-code ")" office "-" subscriber
+area-code = 3digit
+office = 3digit
+subscriber = 4digit
+digit = %d48-57
