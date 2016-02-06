@@ -1,0 +1,2 @@
+rule = &&(lineend / %^) "abc" &(lineend / %$)
+lineend = %d10;
