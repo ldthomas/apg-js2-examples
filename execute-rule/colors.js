@@ -36,9 +36,9 @@ module.exports = function(){
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'start', lower: 'start', index: 0, isBkr: false, hasBkr: false};
-  this.rules[1] = {name: 'color', lower: 'color', index: 1, isBkr: false, hasBkr: false};
-  this.rules[2] = {name: 'dummy', lower: 'dummy', index: 2, isBkr: false, hasBkr: false};
+  this.rules[0] = {name: 'start', lower: 'start', index: 0, isBkr: false};
+  this.rules[1] = {name: 'color', lower: 'color', index: 1, isBkr: false};
+  this.rules[2] = {name: 'dummy', lower: 'dummy', index: 2, isBkr: false};
 
   /* UDTS */
   this.udts = [];
@@ -54,23 +54,23 @@ module.exports = function(){
   this.rules[0].opcodes[1] = {type: 4, index: 1};// RNM(color)
   this.rules[0].opcodes[2] = {type: 3, min: 0, max: Infinity};// REP
   this.rules[0].opcodes[3] = {type: 2, children: [4,5]};// CAT
-  this.rules[0].opcodes[4] = {type: 9, string: [44]};// TLS
+  this.rules[0].opcodes[4] = {type: 7, string: [44]};// TLS
   this.rules[0].opcodes[5] = {type: 4, index: 1};// RNM(color)
 
   /* color */
   this.rules[1].opcodes = [];
   this.rules[1].opcodes[0] = {type: 1, children: [1,2,3]};// ALT
-  this.rules[1].opcodes[1] = {type: 9, string: [114,101,100]};// TLS
-  this.rules[1].opcodes[2] = {type: 9, string: [119,104,105,116,101]};// TLS
-  this.rules[1].opcodes[3] = {type: 9, string: [98,108,117,101]};// TLS
+  this.rules[1].opcodes[1] = {type: 7, string: [114,101,100]};// TLS
+  this.rules[1].opcodes[2] = {type: 7, string: [119,104,105,116,101]};// TLS
+  this.rules[1].opcodes[3] = {type: 7, string: [98,108,117,101]};// TLS
 
   /* dummy */
   this.rules[2].opcodes = [];
   this.rules[2].opcodes[0] = {type: 2, children: [1,2,3,4]};// CAT
-  this.rules[2].opcodes[1] = {type: 5, empty: false, index: 0};// UDT(u_red)
-  this.rules[2].opcodes[2] = {type: 5, empty: false, index: 1};// UDT(u_white)
-  this.rules[2].opcodes[3] = {type: 5, empty: false, index: 2};// UDT(u_blue)
-  this.rules[2].opcodes[4] = {type: 5, empty: false, index: 3};// UDT(u_yellow)
+  this.rules[2].opcodes[1] = {type: 11, empty: false, index: 0};// UDT(u_red)
+  this.rules[2].opcodes[2] = {type: 11, empty: false, index: 1};// UDT(u_white)
+  this.rules[2].opcodes[3] = {type: 11, empty: false, index: 2};// UDT(u_blue)
+  this.rules[2].opcodes[4] = {type: 11, empty: false, index: 3};// UDT(u_yellow)
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

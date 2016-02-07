@@ -16,7 +16,6 @@ module.exports = function(trace, phoneNumber, name) {
   var inspectOptions = {
     showHidden : true,
     depth : null,
-    colors : true
   };
   try {
     var apglib = require("apg-lib");

@@ -43,12 +43,12 @@ module.exports = function(){
   this.rules[0].opcodes[0] = {type: 2, children: [1,3]};// CAT
   this.rules[0].opcodes[1] = {type: 3, min: 0, max: Infinity};// REP
   this.rules[0].opcodes[2] = {type: 4, index: 1};// RNM(text)
-  this.rules[0].opcodes[3] = {type: 12};// BKA
-  this.rules[0].opcodes[4] = {type: 9, string: [32,101,110,100]};// TLS
+  this.rules[0].opcodes[3] = {type: 15};// BKA
+  this.rules[0].opcodes[4] = {type: 7, string: [32,101,110,100]};// TLS
 
   /* text */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 8, min: 32, max: 126};// TRG
+  this.rules[1].opcodes[0] = {type: 5, min: 32, max: 126};// TRG
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

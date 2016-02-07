@@ -1,0 +1,5 @@
+rule = ( (A B) / (X Y) ) \%pX \%pA
+A = "a"
+B = "b"
+X = "a"
+Y = "y"

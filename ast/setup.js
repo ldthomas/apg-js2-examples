@@ -7,7 +7,6 @@ module.exports = function() {
   var inspectOptions = {
     showHidden : true,
     depth : null,
-    colors : true
   };
   try {
     // Acquire the required parser components.

@@ -32,8 +32,8 @@ module.exports = function(){
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'start', lower: 'start', index: 0, isBkr: false, hasBkr: false};
-  this.rules[1] = {name: 'more', lower: 'more', index: 1, isBkr: false, hasBkr: false};
+  this.rules[0] = {name: 'start', lower: 'start', index: 0, isBkr: false};
+  this.rules[1] = {name: 'more', lower: 'more', index: 1, isBkr: false};
 
   /* UDTS */
   this.udts = [];
@@ -43,12 +43,12 @@ module.exports = function(){
   /* start */
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 2, children: [1,2]};// CAT
-  this.rules[0].opcodes[1] = {type: 9, string: [115,116,97,114,116]};// TLS
-  this.rules[0].opcodes[2] = {type: 5, empty: false, index: 0};// UDT(u_more)
+  this.rules[0].opcodes[1] = {type: 7, string: [115,116,97,114,116]};// TLS
+  this.rules[0].opcodes[2] = {type: 11, empty: false, index: 0};// UDT(u_more)
 
   /* more */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 9, string: [32,109,111,114,101]};// TLS
+  this.rules[1].opcodes[0] = {type: 7, string: [32,109,111,114,101]};// TLS
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

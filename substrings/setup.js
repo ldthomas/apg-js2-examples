@@ -6,7 +6,6 @@ module.exports = function(input, beg, len, grammar, name) {
   var opts = {
     showHidden : true,
     depth : null,
-    colors : true
   };
   // Quick and dirty conversion of ascii chars to HTML format.
   // Needed for HTML display of grammars that contain HTML entity characters.

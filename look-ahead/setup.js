@@ -21,7 +21,6 @@ module.exports = function(grammar, callbacks, input) {
   var inspectOptions = {
     showHidden : true,
     depth : null,
-    colors : true
   };
   try {
     // See [`simple/setup.js`](../simple/setup.html) for the basics of setting up the parser objects.

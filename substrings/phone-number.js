@@ -47,11 +47,11 @@ module.exports = function(){
   /* phone-number */
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 2, children: [1,2,3,4,5,6]};// CAT
-  this.rules[0].opcodes[1] = {type: 9, string: [40]};// TLS
+  this.rules[0].opcodes[1] = {type: 7, string: [40]};// TLS
   this.rules[0].opcodes[2] = {type: 4, index: 1};// RNM(area-code)
-  this.rules[0].opcodes[3] = {type: 9, string: [41]};// TLS
+  this.rules[0].opcodes[3] = {type: 7, string: [41]};// TLS
   this.rules[0].opcodes[4] = {type: 4, index: 2};// RNM(office)
-  this.rules[0].opcodes[5] = {type: 9, string: [45]};// TLS
+  this.rules[0].opcodes[5] = {type: 7, string: [45]};// TLS
   this.rules[0].opcodes[6] = {type: 4, index: 3};// RNM(subscriber)
 
   /* area-code */
@@ -71,7 +71,7 @@ module.exports = function(){
 
   /* digit */
   this.rules[4].opcodes = [];
-  this.rules[4].opcodes[0] = {type: 8, min: 48, max: 57};// TRG
+  this.rules[4].opcodes[0] = {type: 5, min: 48, max: 57};// TRG
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

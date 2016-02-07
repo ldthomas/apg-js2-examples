@@ -1,0 +1,54 @@
+#!/bin/bash
+echo ""
+echo "ast tests"
+node ast/translate.js
+node ast/xml.js
+echo ""
+echo "back-reference tests"
+node back-reference/simple.js
+node back-reference/html.js
+node back-reference/parent.js
+node back-reference/universal.js
+node back-reference/branch-fail.js
+echo ""
+echo "execute-rule tests"
+node execute-rule/colors-app.js
+node execute-rule/more-app.js
+echo ""
+echo "ini-file tests"
+node ini-file/basic.js
+node ini-file/bad-input.js
+node ini-file/trace.js
+echo ""
+echo "look-ahead tests"
+node look-ahead/and.js
+node look-ahead/not.js
+node look-ahead/compound.js
+echo ""
+echo "look-behind tests"
+node look-behind/positive.js
+node look-behind/negative.js
+node look-behind/boundaries.js
+node look-behind/comment.js
+echo ""
+echo "simple tests"
+node simple/minimal.js
+node simple/stats.js
+node simple/trace.js
+echo ""
+echo "substrings tests"
+node substrings/simple.js
+node substrings/lookaround.js
+echo ""
+echo "trace tests"
+node trace/default.js
+node trace/select-rules.js
+node trace/select-operators.js
+node trace/all-operators.js
+node trace/limited-lines.js
+echo ""
+echo "udt tests"
+node udt/minimal.js
+node udt/stats.js
+node udt/trace.js
+exit 0

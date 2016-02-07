@@ -41,16 +41,16 @@ module.exports = function(){
   /* area-code */
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 2, children: [1,3,5]};// CAT
-  this.rules[0].opcodes[1] = {type: 12};// BKA
-  this.rules[0].opcodes[2] = {type: 9, string: [40]};// TLS
+  this.rules[0].opcodes[1] = {type: 15};// BKA
+  this.rules[0].opcodes[2] = {type: 7, string: [40]};// TLS
   this.rules[0].opcodes[3] = {type: 3, min: 3, max: 3};// REP
   this.rules[0].opcodes[4] = {type: 4, index: 1};// RNM(digit)
-  this.rules[0].opcodes[5] = {type: 6};// AND
-  this.rules[0].opcodes[6] = {type: 9, string: [41]};// TLS
+  this.rules[0].opcodes[5] = {type: 12};// AND
+  this.rules[0].opcodes[6] = {type: 7, string: [41]};// TLS
 
   /* digit */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 8, min: 48, max: 57};// TRG
+  this.rules[1].opcodes[0] = {type: 5, min: 48, max: 57};// TRG
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

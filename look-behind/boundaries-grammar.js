@@ -53,21 +53,21 @@ module.exports = function(){
 
   /* any */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 8, min: 32, max: 126};// TRG
+  this.rules[1].opcodes[0] = {type: 5, min: 32, max: 126};// TRG
 
   /* word-char */
   this.rules[2].opcodes = [];
   this.rules[2].opcodes[0] = {type: 1, children: [1,2]};// ALT
-  this.rules[2].opcodes[1] = {type: 8, min: 64, max: 90};// TRG
-  this.rules[2].opcodes[2] = {type: 8, min: 97, max: 122};// TRG
+  this.rules[2].opcodes[1] = {type: 5, min: 64, max: 90};// TRG
+  this.rules[2].opcodes[2] = {type: 5, min: 97, max: 122};// TRG
 
   /* cat */
   this.rules[3].opcodes = [];
   this.rules[3].opcodes[0] = {type: 2, children: [1,3,4]};// CAT
-  this.rules[3].opcodes[1] = {type: 13};// BKN
+  this.rules[3].opcodes[1] = {type: 16};// BKN
   this.rules[3].opcodes[2] = {type: 4, index: 2};// RNM(word-char)
-  this.rules[3].opcodes[3] = {type: 9, string: [99,97,116]};// TLS
-  this.rules[3].opcodes[4] = {type: 7};// NOT
+  this.rules[3].opcodes[3] = {type: 7, string: [99,97,116]};// TLS
+  this.rules[3].opcodes[4] = {type: 13};// NOT
   this.rules[3].opcodes[5] = {type: 4, index: 2};// RNM(word-char)
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.

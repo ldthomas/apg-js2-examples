@@ -36,12 +36,12 @@ module.exports = function(){
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'phone-number', lower: 'phone-number', index: 0, isBkr: false, hasBkr: false};
-  this.rules[1] = {name: 'area-code', lower: 'area-code', index: 1, isBkr: false, hasBkr: false};
-  this.rules[2] = {name: 'subscriber', lower: 'subscriber', index: 2, isBkr: false, hasBkr: false};
-  this.rules[3] = {name: 'gt-2', lower: 'gt-2', index: 3, isBkr: false, hasBkr: false};
-  this.rules[4] = {name: 'not-9', lower: 'not-9', index: 4, isBkr: false, hasBkr: false};
-  this.rules[5] = {name: 'digit', lower: 'digit', index: 5, isBkr: false, hasBkr: false};
+  this.rules[0] = {name: 'phone-number', lower: 'phone-number', index: 0, isBkr: false};
+  this.rules[1] = {name: 'area-code', lower: 'area-code', index: 1, isBkr: false};
+  this.rules[2] = {name: 'subscriber', lower: 'subscriber', index: 2, isBkr: false};
+  this.rules[3] = {name: 'gt-2', lower: 'gt-2', index: 3, isBkr: false};
+  this.rules[4] = {name: 'not-9', lower: 'not-9', index: 4, isBkr: false};
+  this.rules[5] = {name: 'digit', lower: 'digit', index: 5, isBkr: false};
 
   /* UDTS */
   this.udts = [];
@@ -51,11 +51,11 @@ module.exports = function(){
   /* phone-number */
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 2, children: [1,2,3,4,5,6]};// CAT
-  this.rules[0].opcodes[1] = {type: 9, string: [40]};// TLS
+  this.rules[0].opcodes[1] = {type: 7, string: [40]};// TLS
   this.rules[0].opcodes[2] = {type: 4, index: 1};// RNM(area-code)
-  this.rules[0].opcodes[3] = {type: 9, string: [41]};// TLS
-  this.rules[0].opcodes[4] = {type: 5, empty: false, index: 0};// UDT(u_office)
-  this.rules[0].opcodes[5] = {type: 9, string: [45]};// TLS
+  this.rules[0].opcodes[3] = {type: 7, string: [41]};// TLS
+  this.rules[0].opcodes[4] = {type: 11, empty: false, index: 0};// UDT(u_office)
+  this.rules[0].opcodes[5] = {type: 7, string: [45]};// TLS
   this.rules[0].opcodes[6] = {type: 4, index: 2};// RNM(subscriber)
 
   /* area-code */
@@ -72,15 +72,15 @@ module.exports = function(){
 
   /* gt-2 */
   this.rules[3].opcodes = [];
-  this.rules[3].opcodes[0] = {type: 8, min: 50, max: 57};// TRG
+  this.rules[3].opcodes[0] = {type: 5, min: 50, max: 57};// TRG
 
   /* not-9 */
   this.rules[4].opcodes = [];
-  this.rules[4].opcodes[0] = {type: 8, min: 48, max: 56};// TRG
+  this.rules[4].opcodes[0] = {type: 5, min: 48, max: 56};// TRG
 
   /* digit */
   this.rules[5].opcodes = [];
-  this.rules[5].opcodes[0] = {type: 8, min: 48, max: 57};// TRG
+  this.rules[5].opcodes[0] = {type: 5, min: 48, max: 57};// TRG
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

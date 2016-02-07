@@ -9,7 +9,6 @@ module.exports = function(doStats, doTrace) {
   var inspectOptions = {
     showHidden : true,
     depth : null,
-    colors : true
   };
   doStats = doStats === true ? true : false;
   doTrace = doTrace === true ? true : false;

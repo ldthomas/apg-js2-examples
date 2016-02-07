@@ -55,7 +55,7 @@ module.exports = function(){
 
   /* begin-comment */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 9, string: [47,47]};// TLS
+  this.rules[1].opcodes[0] = {type: 7, string: [47,47]};// TLS
 
   /* text */
   this.rules[2].opcodes = [];
@@ -71,14 +71,14 @@ module.exports = function(){
   /* other-text */
   this.rules[4].opcodes = [];
   this.rules[4].opcodes[0] = {type: 2, children: [1,3]};// CAT
-  this.rules[4].opcodes[1] = {type: 13};// BKN
+  this.rules[4].opcodes[1] = {type: 16};// BKN
   this.rules[4].opcodes[2] = {type: 4, index: 1};// RNM(begin-comment)
   this.rules[4].opcodes[3] = {type: 3, min: 1, max: Infinity};// REP
   this.rules[4].opcodes[4] = {type: 4, index: 5};// RNM(vchar)
 
   /* vchar */
   this.rules[5].opcodes = [];
-  this.rules[5].opcodes[0] = {type: 8, min: 32, max: 126};// TRG
+  this.rules[5].opcodes[0] = {type: 5, min: 32, max: 126};// TRG
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

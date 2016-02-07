@@ -42,15 +42,15 @@ module.exports = function(){
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 2, children: [1,2,3,4]};// CAT
   this.rules[0].opcodes[1] = {type: 4, index: 1};// RNM(A)
-  this.rules[0].opcodes[2] = {type: 11, index: 1, lower: 'a', bkrCase: 64, bkrMode: 61};// BKR(\%i%uA)
-  this.rules[0].opcodes[3] = {type: 11, index: 1, lower: 'a', bkrCase: 64, bkrMode: 61};// BKR(\%i%uA)
-  this.rules[0].opcodes[4] = {type: 11, index: 1, lower: 'a', bkrCase: 63, bkrMode: 61};// BKR(\%s%uA)
+  this.rules[0].opcodes[2] = {type: 14, index: 1, lower: 'a', bkrCase: 604, bkrMode: 601};// BKR(\%i%uA)
+  this.rules[0].opcodes[3] = {type: 14, index: 1, lower: 'a', bkrCase: 604, bkrMode: 601};// BKR(\%i%uA)
+  this.rules[0].opcodes[4] = {type: 14, index: 1, lower: 'a', bkrCase: 603, bkrMode: 601};// BKR(\%s%uA)
 
   /* A */
   this.rules[1].opcodes = [];
   this.rules[1].opcodes[0] = {type: 1, children: [1,2]};// ALT
-  this.rules[1].opcodes[1] = {type: 9, string: [120]};// TLS
-  this.rules[1].opcodes[2] = {type: 9, string: [121]};// TLS
+  this.rules[1].opcodes[1] = {type: 7, string: [120]};// TLS
+  this.rules[1].opcodes[2] = {type: 7, string: [121]};// TLS
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

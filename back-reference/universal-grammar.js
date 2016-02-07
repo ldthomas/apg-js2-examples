@@ -45,19 +45,19 @@ module.exports = function(){
   this.rules[0].opcodes[0] = {type: 2, children: [1,2,3]};// CAT
   this.rules[0].opcodes[1] = {type: 4, index: 2};// RNM(A)
   this.rules[0].opcodes[2] = {type: 4, index: 1};// RNM(B)
-  this.rules[0].opcodes[3] = {type: 11, index: 2, lower: 'a', bkrCase: 64, bkrMode: 61};// BKR(\%i%uA)
+  this.rules[0].opcodes[3] = {type: 14, index: 2, lower: 'a', bkrCase: 604, bkrMode: 601};// BKR(\%i%uA)
 
   /* B */
   this.rules[1].opcodes = [];
   this.rules[1].opcodes[0] = {type: 2, children: [1,2]};// CAT
   this.rules[1].opcodes[1] = {type: 4, index: 2};// RNM(A)
-  this.rules[1].opcodes[2] = {type: 9, string: [98]};// TLS
+  this.rules[1].opcodes[2] = {type: 7, string: [98]};// TLS
 
   /* A */
   this.rules[2].opcodes = [];
   this.rules[2].opcodes[0] = {type: 1, children: [1,2]};// ALT
-  this.rules[2].opcodes[1] = {type: 9, string: [120]};// TLS
-  this.rules[2].opcodes[2] = {type: 9, string: [121]};// TLS
+  this.rules[2].opcodes[1] = {type: 7, string: [120]};// TLS
+  this.rules[2].opcodes[2] = {type: 7, string: [121]};// TLS
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

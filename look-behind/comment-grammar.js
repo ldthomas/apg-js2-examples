@@ -62,16 +62,16 @@ module.exports = function(){
   /* left-to-right */
   this.rules[1].opcodes = [];
   this.rules[1].opcodes[0] = {type: 2, children: [1,3]};// CAT
-  this.rules[1].opcodes[1] = {type: 12};// BKA
+  this.rules[1].opcodes[1] = {type: 15};// BKA
   this.rules[1].opcodes[2] = {type: 4, index: 3};// RNM(ltr-comment)
-  this.rules[1].opcodes[3] = {type: 9, string: [36]};// TLS
+  this.rules[1].opcodes[3] = {type: 7, string: [36]};// TLS
 
   /* right-to-left */
   this.rules[2].opcodes = [];
   this.rules[2].opcodes[0] = {type: 2, children: [1,3]};// CAT
-  this.rules[2].opcodes[1] = {type: 12};// BKA
+  this.rules[2].opcodes[1] = {type: 15};// BKA
   this.rules[2].opcodes[2] = {type: 4, index: 4};// RNM(rtl-comment)
-  this.rules[2].opcodes[3] = {type: 9, string: [36]};// TLS
+  this.rules[2].opcodes[3] = {type: 7, string: [36]};// TLS
 
   /* ltr-comment */
   this.rules[3].opcodes = [];
@@ -79,7 +79,7 @@ module.exports = function(){
   this.rules[3].opcodes[1] = {type: 4, index: 5};// RNM(begin)
   this.rules[3].opcodes[2] = {type: 3, min: 0, max: Infinity};// REP
   this.rules[3].opcodes[3] = {type: 2, children: [4,6]};// CAT
-  this.rules[3].opcodes[4] = {type: 7};// NOT
+  this.rules[3].opcodes[4] = {type: 13};// NOT
   this.rules[3].opcodes[5] = {type: 4, index: 6};// RNM(end)
   this.rules[3].opcodes[6] = {type: 4, index: 7};// RNM(any)
   this.rules[3].opcodes[7] = {type: 4, index: 6};// RNM(end)
@@ -91,24 +91,24 @@ module.exports = function(){
   this.rules[4].opcodes[2] = {type: 3, min: 0, max: Infinity};// REP
   this.rules[4].opcodes[3] = {type: 2, children: [4,5]};// CAT
   this.rules[4].opcodes[4] = {type: 4, index: 7};// RNM(any)
-  this.rules[4].opcodes[5] = {type: 13};// BKN
+  this.rules[4].opcodes[5] = {type: 16};// BKN
   this.rules[4].opcodes[6] = {type: 4, index: 5};// RNM(begin)
   this.rules[4].opcodes[7] = {type: 4, index: 6};// RNM(end)
 
   /* begin */
   this.rules[5].opcodes = [];
-  this.rules[5].opcodes[0] = {type: 9, string: [47,42]};// TLS
+  this.rules[5].opcodes[0] = {type: 7, string: [47,42]};// TLS
 
   /* end */
   this.rules[6].opcodes = [];
-  this.rules[6].opcodes[0] = {type: 9, string: [42,47]};// TLS
+  this.rules[6].opcodes[0] = {type: 7, string: [42,47]};// TLS
 
   /* any */
   this.rules[7].opcodes = [];
   this.rules[7].opcodes[0] = {type: 1, children: [1,2,3]};// ALT
-  this.rules[7].opcodes[1] = {type: 8, min: 32, max: 126};// TRG
-  this.rules[7].opcodes[2] = {type: 8, min: 9, max: 10};// TRG
-  this.rules[7].opcodes[3] = {type: 10, string: [13]};// TBS
+  this.rules[7].opcodes[1] = {type: 5, min: 32, max: 126};// TRG
+  this.rules[7].opcodes[2] = {type: 5, min: 9, max: 10};// TRG
+  this.rules[7].opcodes[3] = {type: 6, string: [13]};// TBS
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){

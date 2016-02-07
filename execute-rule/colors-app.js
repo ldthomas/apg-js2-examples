@@ -28,7 +28,6 @@
   var inspectOptions = {
     showHidden : true,
     depth : null,
-    colors : true
   };
   try {
     var result;

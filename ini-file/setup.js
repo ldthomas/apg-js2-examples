@@ -21,7 +21,6 @@ module.exports = function(input, trace, stats) {
   var inspectOptions = {
     showHidden : true,
     depth : null,
-    colors : true
   };
   /* build an array of names (strings) and sort them alphabetically */
   var sortNames = function(obj) {

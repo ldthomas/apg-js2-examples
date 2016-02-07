@@ -44,14 +44,14 @@ module.exports = function(){
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 1, children: [1,9]};// ALT
   this.rules[0].opcodes[1] = {type: 2, children: [2,3,4,5,6,7,8]};// CAT
-  this.rules[0].opcodes[2] = {type: 9, string: [60]};// TLS
+  this.rules[0].opcodes[2] = {type: 7, string: [60]};// TLS
   this.rules[0].opcodes[3] = {type: 4, index: 1};// RNM(name)
-  this.rules[0].opcodes[4] = {type: 9, string: [62]};// TLS
+  this.rules[0].opcodes[4] = {type: 7, string: [62]};// TLS
   this.rules[0].opcodes[5] = {type: 4, index: 0};// RNM(HTML)
-  this.rules[0].opcodes[6] = {type: 9, string: [60,47]};// TLS
-  this.rules[0].opcodes[7] = {type: 11, index: 1, lower: 'name', bkrCase: 64, bkrMode: 62};// BKR(\%i%pname)
-  this.rules[0].opcodes[8] = {type: 9, string: [62]};// TLS
-  this.rules[0].opcodes[9] = {type: 9, string: [46,46,46]};// TLS
+  this.rules[0].opcodes[6] = {type: 7, string: [60,47]};// TLS
+  this.rules[0].opcodes[7] = {type: 14, index: 1, lower: 'name', bkrCase: 604, bkrMode: 602};// BKR(\%i%pname)
+  this.rules[0].opcodes[8] = {type: 7, string: [62]};// TLS
+  this.rules[0].opcodes[9] = {type: 7, string: [46,46,46]};// TLS
 
   /* name */
   this.rules[1].opcodes = [];
@@ -61,13 +61,13 @@ module.exports = function(){
   this.rules[2].opcodes = [];
   this.rules[2].opcodes[0] = {type: 2, children: [1,4]};// CAT
   this.rules[2].opcodes[1] = {type: 1, children: [2,3]};// ALT
-  this.rules[2].opcodes[2] = {type: 8, min: 97, max: 122};// TRG
-  this.rules[2].opcodes[3] = {type: 8, min: 65, max: 90};// TRG
+  this.rules[2].opcodes[2] = {type: 5, min: 97, max: 122};// TRG
+  this.rules[2].opcodes[3] = {type: 5, min: 65, max: 90};// TRG
   this.rules[2].opcodes[4] = {type: 3, min: 0, max: Infinity};// REP
   this.rules[2].opcodes[5] = {type: 1, children: [6,7,8]};// ALT
-  this.rules[2].opcodes[6] = {type: 8, min: 97, max: 122};// TRG
-  this.rules[2].opcodes[7] = {type: 8, min: 65, max: 90};// TRG
-  this.rules[2].opcodes[8] = {type: 8, min: 48, max: 57};// TRG
+  this.rules[2].opcodes[6] = {type: 5, min: 97, max: 122};// TRG
+  this.rules[2].opcodes[7] = {type: 5, min: 65, max: 90};// TRG
+  this.rules[2].opcodes[8] = {type: 5, min: 48, max: 57};// TRG
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){
