@@ -1,6 +1,6 @@
 {
   "name": "apg-examples",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Numerous examples of using apg, apg-lib and apg-exp.",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,7 @@
   "dependencies": {
     "apg-lib": "*",
     "apg-exp": "*",
-    "jquery" : "*"
+    "jquery": "*"
   },
   "keywords": [
     "apg",
