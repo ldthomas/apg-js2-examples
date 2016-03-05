@@ -11,7 +11,7 @@
     "apg-strict": "apg --in=./apg/files/lfOnly.bnf --strict && echo 'see ./html/grammar.html for grammar errors'",
     "apg-errors": "apg --in=./apg/files/bad-elements.bnf && echo 'see ./html/grammar.html for grammar errors'",
     "apg-rules": "apg --in=./apg/files/multiple-rules.bnf && echo 'see ./html/grammar.html for grammar errors'",
-    "apg-closed": "apg --in=./apg/files/not-closed.bnf && echo 'see ./html/grammar.html for grammar errors'",
+    "apg-closed": "apg --in=./apg/files/not-closed.bnf && echo 'see ./html/grammar.html for grammar errors'"
   },
   "files": [
     "apg",
@@ -31,8 +31,8 @@
     "docco-gen"
   ],
   "dependencies": {
-    "apg-lib": "2.x",
-    "apg-exp": "2.x",
+    "apg-lib": "*",
+    "apg-exp": "*",
     "jquery" : "*"
   },
   "keywords": [
