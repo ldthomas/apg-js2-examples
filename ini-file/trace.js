@@ -34,7 +34,7 @@
     trace.filter.rules['valuearray'] = true;
     trace.filter.rules['valueline'] = true;
     trace.filter.rules['wsp'] = false;
-    var inputStr = fs.readFileSync("./ini-file/bad.txt", "utf8");
+    var inputStr = fs.readFileSync("./bad.txt", "utf8");
     demo(inputStr, trace, stats);
   } catch (e) {
     console.log();

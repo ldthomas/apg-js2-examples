@@ -1,0 +1,14 @@
+; a simplified version of an ini file
+; an optional section name line
+; one required key/value pair line
+ini          = [section] key equals value owsp line-end
+section      = "[" owsp section-name owsp "]" owsp line-end
+section-name = alphanum
+key          = alphanum
+equals       = owsp "=" owsp
+value        = 1*digit
+line-end     = %d13.10 / %d10 / %d13
+alphanum     = alpha *(alpha / digit)
+alpha        = %d65-90 / %d97-122
+digit        = %d48-57
+owsp         = *%d32

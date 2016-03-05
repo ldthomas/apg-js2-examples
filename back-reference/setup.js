@@ -1,7 +1,6 @@
 // This is the general set up for the back reference examples.
 module.exports = function(input, grammar, name, doTrace) {
   "use strict";
-  var fs = require("fs");
   var nodeUtil = require("util");
   var inspectOptions = {
     showHidden : true,
@@ -40,8 +39,8 @@ module.exports = function(input, grammar, name, doTrace) {
   try {
     var chars;
     var html = "";
-    var pageName = "./html/" + name + ".html";
     var apglib = require("apg-lib");
+    var writePage = require("../writeHtml.js");
     var parser = new apglib.parser();
     if(doTrace === true){
       parser.trace = new apglib.trace();
@@ -52,7 +51,7 @@ module.exports = function(input, grammar, name, doTrace) {
     var result = parser.parse(grammar, 0, input);
     /* output to console */
     console.log();
-    console.log("        HTML: " + pageName);
+    console.log("        HTML: " + name);
     console.log("           results:");
     console.dir(result, inspectOptions);
     /* display input, results and trace on HMTL page */
@@ -71,8 +70,7 @@ module.exports = function(input, grammar, name, doTrace) {
       html += parser.trace.toHtml("ascii", name);
     }
     html = apglib.utils.htmlToPage(html, name, name);
-    fs.writeFileSync(pageName, html);
-    console.log("see " + pageName + " for html display of output");
+    writePage(html, name);
   } catch (e) {
     var msg = "\nEXCEPTION THROWN: ";
     +"\n";

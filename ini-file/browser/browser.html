@@ -5,13 +5,43 @@
 <meta charset="utf-8">
 <script src="bundle.js" charset="utf-8"></script>
 <link href="sinorca-screen.css" rel="stylesheet" type="text/css" />
+<style>
+body {margin: 10px;}
+</style>
 </head>
 <body>
   <h1>JavaScript APG Version 2.0 Parsing Library</h1>
   <h2>An example of use in a browser application</h2>
 	<p>
 		<b>Example:</b> <a href="https://en.wikipedia.org/wiki/INI_file">INI file</a> - an initialization file format.<br>
-		(see <code>apg-examples/ini-file/ini-file.js</code> for the grammar used)
+	</p>
+	<p>The grammar:
+	<pre>
+IniFile         = *(BlankLine/ValueLine) *Section
+Section         = SectionLine *(BlankLine/ValueLine)
+SectionLine     = GoodSectionLine/BadSectionLine
+GoodSectionLine = "[" wsp SectionName wsp "]" wsp [comment] LineEnd
+BadSectionLine  = "[" *any LineEnd;
+ValueLine       = GoodValueLine/BadValueLine
+GoodValueLine   = KeyName wsp "=" wsp ValueArray wsp [comment] LineEnd
+BadValueLine    = (%d33-90/%d92-126) *any LineEnd
+ValueArray      = Value *(wsp "," wsp Value)
+SectionName     = (alpha/%d95) *(alpha/digit/%d95)
+KeyName         = (alpha/%d95) *(alpha/digit/%d95)
+Value           = DQuotedString/SQuotedString/AlphaDigit
+DQuotedString   = %d34 1*(%d32-33/%d35-126) %d34
+SQuotedString   = %d39 1*(%d32-38/%d40-126) %d39
+AlphaDigit      = 1*(alpha/digit)
+BlankLine       = GoodBlankLine/BadBlankLine
+GoodBlankLine   = wsp [comment] LineEnd
+BadBlankLine    = (%d32/%d9) wsp (%d33-58/%d60-126) *any LineEnd
+LineEnd         = %d13.10/%d10/%d13
+comment         = %d59 *any
+wsp             = *(%d32/%d9)
+alpha           = %d65-90/%d97-122
+digit           = %d48-57
+any             = %d32-126/%d9
+	</pre>
 	</p>
 	<p>
 		<b>The Input String:</b> (edit and click "parse")
@@ -21,7 +51,6 @@
 <br><input type="checkbox" id="trace" value="trace">trace <input type="checkbox" id="stats" value="stats">stats
 		<br> <input type="button" id="parser" value="parse" />
 	</p>
-	<h3>The Parser's Output:</h3>
 	<div id="parser-output">
 		<!-- the "main" program will write its results here  -->
 	</div>

@@ -9,12 +9,6 @@ module.exports = function() {
   var html = "";
   var statsHtml = "";
   var traceHtml = "";
-  var nodeUtil = require("util");
-  var inspectOptions = {
-    showHidden : false,
-    depth : null,
-    colors : false
-  };
   var sortNames = function(obj) {
     var count = 0;
     var names = [];
@@ -35,13 +29,16 @@ module.exports = function() {
     parser.ast = new apglib.ast();
     parser.callbacks = parserCallbacks.callbacks;
     parser.ast.callbacks = astCallbacks.callbacks;
+    html += apglib.utils.styleClasses();
+    html += apglib.utils.styleLeftTable();
+    html += apglib.utils.styleRightTable();
+    html += apglib.utils.styleLastLeftTable();
+    html += apglib.utils.styleLast2LeftTable();
     if ($("#trace").prop("checked")) {
       parser.trace = new apglib.trace();
-      html += "<p>trace enabled</p>";
     }
     if ($("#stats").prop("checked")) {
       parser.stats = new apglib.stats();
-      html += "<p>stats enabled</p>";
     }
     // Get the input string from the textbox.
     var input = $("#input-string").val();
@@ -50,13 +47,13 @@ module.exports = function() {
     // Parse the input string (INI file data).
     var result = parser.parse(grammar, 0, inputCharacterCodes, syntaxData);
     if (parser.stats !== null) {
-      statsHtml = parser.stats.displayHtml("hits", "rules ordered by hit count");
+      statsHtml = parser.stats.toHtml("hits", "rules ordered by hit count");
     }
     if (parser.trace !== null) {
-      traceHtml = parser.trace.displayHtml("IniFile Trace", "ascii");
+      traceHtml = parser.trace.toHtml("IniFile Trace", "ascii");
     }
     html += "<p><b>the parser's results: </b></p><p>";
-    html += nodeUtil.inspect(result, inspectOptions);
+    html += apglib.utils.parserResultToHtml(result);
     html += "</p>";
     if (result.success !== true) {
       throw new Error(thisFileName + "parse failed");

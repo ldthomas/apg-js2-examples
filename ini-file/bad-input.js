@@ -10,7 +10,7 @@
   var fs = require("fs");
   var demo = require("./setup.js");
   try {
-    var inputStr = fs.readFileSync("./ini-file/bad.txt", "utf8");
+    var inputStr = fs.readFileSync("./bad.txt", "utf8");
     demo(inputStr, null, null);
   } catch (e) {
     console.log();

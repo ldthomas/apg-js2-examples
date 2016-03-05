@@ -1,0 +1,4 @@
+word         = english-word / greek-word / other-word
+english-word = 1*(%d65-90/%d97-122)
+greek-word   = 1*(%x370-3ff)
+other-word   = 1*(%d31-64 / %d91-96 / %d123-879 / %x400-ffff)

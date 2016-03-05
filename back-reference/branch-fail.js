@@ -1,4 +1,4 @@
-// Simple demonstration of case-sensitive and case-insensitive back reference phrase matching. 
+// Simple demonstration that when a branch fails, matched rules in the failed branch are not retained. 
 (function(){
   var setup = require("./setup.js");
   var input = "ayaa";

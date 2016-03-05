@@ -1,0 +1,12 @@
+stmt       = if-stmt / other-stmt
+if-stmt    = (if expr then) [if-stmt] (else stmt / other-else)
+if         = if-word sep
+then       = sep then-word sep
+else       = sep else-word sep
+expr       = "E" *%d48-57
+other-stmt = "S" *%d48-57
+other-else = "S" *%d48-57
+if-word    = "if"
+then-word  = "then"
+else-word  = "else"
+sep        = 1*%d32

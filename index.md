@@ -13,6 +13,26 @@ They are listed here roughly in order of simplest to most complex.
 <ul>
 <li>See the scripts in the file `package.json` for some example of running `apg`, the parser generator.</li>
 </ul>
+0. `apg-exp` - demonstrates APG Expressions - the new APG regex-like, pattern-matching engine.
+<ul>
+<li>[`apg-exp/ast.js`](./apg-exp/ast.html) - demonstrates using the Abstract Syntax Tree of the matched pattern</li>
+<li>[`apg-exp/cvs.js`](./apg-exp/cvs.html) - demonstrates dealing with Microsoft's Comma Separated Values format</li>
+<li>[`apg-exp/dangling-else.js`](./apg-exp/dangling-else.html) - demonstrates translating the famous "dangling else" problem in the <code>replace()</code> function</li>
+<li>[`apg-exp/display.js`](./apg-exp/display.html) - demonstrates the many display options available for the source and results</li>
+<li>[`apg-exp/flags.js`](./apg-exp/flags.html) - demonstrates the flags or options available</li>
+<li>[`apg-exp/float.js`](./apg-exp/float.html) - demonstrates a comparison to <code>regex</code> for floating point numbers</li>
+<li>[`apg-exp/limits.js`](./apg-exp/limits.html) - demonstrates placing limits on a potentially run-away grammar</li>
+<li>[`apg-exp/multiline-mode.js`](./apg-exp/multiline-mode.html) - demonstrates how to implement multiline mode</li>
+<li>[`apg-exp/recursive.js`](./apg-exp/recursive.html) - demonstrates the use of recursion to match opening and closing parenthesis pairs</li>
+<li>[`apg-exp/replace.js`](./apg-exp/replace.html) - demonstrates the <code>replace()</code> function</li>
+<li>[`apg-exp/rules.js`](./apg-exp/rules.html) - demonstrates how to deal with the named rules in a grammar</li>
+<li>[`apg-exp/split.js`](./apg-exp/split.html) - demonstrates the <code>split()</code> function</li>
+<li>[`apg-exp/test.js`](./apg-exp/test.html) - demonstrates the <code>test()</code> function</li>
+<li>[`apg-exp/trace.js`](./apg-exp/trace.html) - demonstrates viewing the trace of the pattern-matching parse tree</li>
+<li>[`apg-exp/udt.js`](./apg-exp/udt.html) - demonstrates how to insert user-written, phrase-matching code</li>
+<li>[`apg-exp/unicode.js`](./apg-exp/unicode.html) - demonstrates the Unicode mode and how to use it</li>
+<li>[`apg-exp/word-boundaries.js`](./apg-exp/word-boundaries.html) - demonstrates defining and matching word boundaries</li>
+</ul>
 0. `ast` - demonstrate translating and displaying the Abstract Syntax Tree.
 <ul>
 <li>[`ast/setup.js`](./ast/setup.html) - setting up a basic parser for a simple phone number grammar.</li>
@@ -21,6 +41,12 @@ They are listed here roughly in order of simplest to most complex.
 </ul>
 0. `back-reference` - demonstrate use of the back reference operators.
 <ul>
+<li>[`back-reference/setup.js`](./back-reference/setup.html) - the general setup for all of the other examples</li>
+<li>[`back-reference/branch-fail.js`](./back-reference/branch-fail.html) - demonstrates that matched rules in a failed branch are not retained for back reference</li>
+<li>[`back-reference/html.js`](./back-reference/html.html) - demonstrates using recursion with parent mode back referencing to match the names in opening and closing HTML tags</li>
+<li>[`back-reference/parent.js`](./back-reference/parent.html) - demonstrates back references in parent frame mode</li>
+<li>[`back-reference/simple.js`](./back-reference/simple.html) - a simple demonstration of case-sensitive and case-insensitive back references</li>
+<li>[`back-reference/universal.js`](./back-reference/universal.html) - demonstrates back references in universal mode</li>
 </ul>
 0. `execute-rule` - demonstrate the use of the parser's functions `executeRule()` and `executeUdt()`
 from user-written callback functions.
@@ -61,6 +87,11 @@ a make-shift grammar to demonstrate nesting of positive and negative look-ahead 
 </ul>
 0. `look-behind` - demonstrate use of the look-behind (`&&` and `!!`) operators.
 <ul>
+<li>[`look-behind/setup.js`](./look-behind/setup.html) - the basic setup for all of the examples</li>
+<li>[`look-behind/boundaries.js`](./look-behind/boundaries.html) - demonstrates using look behind to define word boundaries</li>
+<li>[`look-behind/comment.js`](./look-behind/comment.html) - demonstrates the problem of using rule/UDT names in look behind - they don't always work right-to-left. Here a special rule is written to match a C-style comment in the right-to-left direction.</li>
+<li>[`look-behind/negative.js`](./look-behind/negative.html) - demonstrates the negative look behind operator</li>
+<li>[`look-behind/positive.js`](./look-behind/positive.html) - demonstrates the positive look behind operator</li>
 </ul>
 0. `simple` - a basic demonstration of how to set up a parser. Nothing fancy, just the basics.<ul>
 <li>[`simple/setup.js`](./simple/setup.html) - set up a basic parser for a simple phone number grammar.</li>
@@ -70,6 +101,9 @@ a make-shift grammar to demonstrate nesting of positive and negative look-ahead 
 </ul>
 0. `substrings` - demonstrate the substring parsing option.
 <ul>
+<li>[`substrings/setup.js`](./substrings/setup.html) - setting up a basic parser for the sub-strings examples</li>
+<li>[`substrings/simple.js`](./substrings/simple.html) - a simple demonstration of using the <code>parseSubstring()</code> function</li>
+<li>[`substrings/lookaround.js`](./substrings/lookaround.html) - demonstrates that look ahead and look behind modes are allowed to look at the portions of the string ahead of and behind the defined sub-string being parsed</li>
 </ul>
 0. `trace` - a demonstration of how to manage the tracing facility.<ul>
 <li>[`trace/setup.js`](./trace/setup.html) - generalized set up of the parser

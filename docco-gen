@@ -1,5 +1,6 @@
 #!/bin/bash
 docco -l classic -o "docs" index.md README.md
+docco -l classic -o "docs/apg-exp" apg-exp/*.js
 docco -l classic -o "docs/ast" ast/*.js
 docco -l classic -o "docs/back-reference" back-reference/*.js
 docco -l classic -o "docs/execute-rule" execute-rule/*.js

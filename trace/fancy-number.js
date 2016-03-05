@@ -6,19 +6,23 @@ module.exports = function(){
   //      rules = 15
   //       udts = 1
   //    opcodes = 57
+  //        ABNF original opcodes
   //        ALT = 3
   //        CAT = 8
-  //        RNM = 20
-  //        UDT = 3
-  //        BKR = 0
   //        REP = 5
+  //        RNM = 20
+  //        TLS = 4
+  //        TBS = 10
+  //        TRG = 4
+  //        SABNF superset opcodes
+  //        UDT = 3
   //        AND = 0
   //        NOT = 0
   //        BKA = 0
   //        BKN = 0
-  //        TLS = 4
-  //        TBS = 10
-  //        TRG = 4
+  //        BKR = 0
+  //        ABG = 0
+  //        AEN = 0
   // characters = [9 - 10091] + user defined
   //```
   /* CALLBACK LIST PROTOTYPE (true, false or function reference) */

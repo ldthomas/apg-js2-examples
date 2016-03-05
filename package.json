@@ -1,7 +1,7 @@
 {
   "name": "apg-examples",
   "version": "2.0.1",
-  "description": "Numerous examples of using apg and apg-lib.",
+  "description": "Numerous examples of using apg, apg-lib and apg-exp.",
   "main": "index.js",
   "scripts": {
     "test": "node ./ast/xml.js",
@@ -12,34 +12,10 @@
     "apg-errors": "apg --in=./apg/files/bad-elements.bnf && echo 'see ./html/grammar.html for grammar errors'",
     "apg-rules": "apg --in=./apg/files/multiple-rules.bnf && echo 'see ./html/grammar.html for grammar errors'",
     "apg-closed": "apg --in=./apg/files/not-closed.bnf && echo 'see ./html/grammar.html for grammar errors'",
-    "simple-minimal": "node ./simple/minimal.js",
-    "simple-stats": "node ./simple/stats.js",
-    "simple-trace": "node ./simple/trace.js",
-    "udt-minimal": "node ./udt/minimal.js",
-    "udt-stats": "node ./udt/stats.js",
-    "udt-trace": "node ./udt/trace.js",
-    "ast-xml": "node ./ast/xml.js",
-    "ast-translate": "node ./ast/translate.js",
-    "back-reference-simple": "node ./back-reference/simple.js",
-    "back-reference-universal": "node ./back-reference/universal.js",
-    "back-reference-parent": "node ./back-reference/parent.js",
-    "back-reference-html": "node ./back-reference/html.js",
-    "trace-default": "node ./trace/default.js",
-    "trace-all-operators": "node ./trace/all-operators.js",
-    "trace-limited-lines": "node ./trace/limited-lines.js",
-    "trace-select-operators": "node ./trace/select-operators.js",
-    "trace-select-rules": "node ./trace/select-rules.js",
-    "look-ahead-and": "node ./look-ahead/and.js",
-    "look-ahead-not": "node ./look-ahead/not.js",
-    "look-ahead-compound": "node ./look-ahead/compound.js",
-    "ini-file-basic": "node ./ini-file/basic.js",
-    "ini-file-bad-input": "node ./ini-file/bad-input.js",
-    "ini-file-trace": "node ./ini-file/trace.js",
-    "execute-rule-more": "node ./execute-rule/more-app.js",
-    "execute-rule-colors": "node ./execute-rule/colors-app.js"
   },
   "files": [
     "apg",
+    "apg-exp",
     "ast",
     "back-reference",
     "execute-rule",
@@ -47,13 +23,16 @@
     "look-ahead",
     "look-behind",
     "simple",
+    "substrings",
     "trace",
     "udt",
+    "writeHtml.js",
     "index.md",
     "docco-gen"
   ],
   "dependencies": {
     "apg-lib": "2.x",
+    "apg-exp": "2.x",
     "jquery" : "*"
   },
   "keywords": [
@@ -61,6 +40,9 @@
     "parser",
     "generator",
     "examples",
+    "regex",
+    "regexp",
+    "patterns",
     "ABNF"
   ],
   "repository": {

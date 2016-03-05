@@ -1,0 +1,8 @@
+cvs           = field *(%d44 field)
+field         = quoted / text
+quoted        = %d34 quoted-text %d34
+quoted-text   = *(any-but-quote / double-quote)
+double-quote  = 2%d34
+any-but-quote = %d32-33 / %d35-126
+text          = *any-but-comma
+any-but-comma = %d32-43 / %d45-126
