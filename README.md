@@ -1,5 +1,6 @@
-##Examples of Use:
-- **JavaScript APG - the parser generator**
+##JavaScript APG Examples
+###Examples for:
+- **apg - the parser generator**
 - **apg-lib - demonstrations of the parser's features and sample parsing problems solved**
 - **apg-exp - demonstrations of the new regex-like pattern-matching engine**
 
