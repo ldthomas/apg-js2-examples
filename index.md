@@ -18,7 +18,7 @@ They are listed here roughly in order of simplest to most complex.
 0. `apg-exp` - demonstrates APG Expressions - the new APG regex-like, pattern-matching engine.
 <ul>
 <li>[`apg-exp/ast.js`](./apg-exp/ast.html) - demonstrates using the Abstract Syntax Tree of the matched pattern</li>
-<li>[`apg-exp/cvs.js`](./apg-exp/cvs.html) - demonstrates dealing with Microsoft's Comma Separated Values format</li>
+<li>[`apg-exp/csv.js`](./apg-exp/csv.html) - demonstrates dealing with Microsoft's Comma Separated Values format</li>
 <li>[`apg-exp/dangling-else.js`](./apg-exp/dangling-else.html) - demonstrates translating the famous "dangling else" problem in the <code>replace()</code> function</li>
 <li>[`apg-exp/display.js`](./apg-exp/display.html) - demonstrates the many display options available for the source and results</li>
 <li>[`apg-exp/flags.js`](./apg-exp/flags.html) - demonstrates the flags or options available</li>
@@ -100,6 +100,11 @@ a make-shift grammar to demonstrate nesting of positive and negative look-ahead 
 <li>[`simple/minimal.js`](./simple/minimal.html) - just parse a phone number and print its parts</li>
 <li>[`simple/stats.js`](./simple/stats.html) - same, but generate and display the parsing statistics</li>
 <li>[`simple/trace.js`](./simple/trace.html) - same, but generate and display the parser trace</li>
+</ul>
+0. `simple/browser` - A demonstration of how to run the `simple` example in a browser web page
+using `apglib.js` and `apglib.css`.<ul>
+<li>[`simple/browser/setup.js`](./simple/browser/setup.html) - set up a basic parser for a simple phone number grammar.</li>
+<li>[`simple/browser/phone-number.js`](./simple/browser/phone-number.html) - the **APG**-generated phone number grammar</li>
 </ul>
 0. `substrings` - demonstrate the substring parsing option.
 <ul>

@@ -32,8 +32,7 @@
   ],
   "dependencies": {
     "apg-lib": "*",
-    "apg-exp": "*",
-    "jquery": "*"
+    "apg-exp": "*"
   },
   "keywords": [
     "apg",

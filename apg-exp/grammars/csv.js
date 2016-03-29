@@ -29,7 +29,7 @@ module.exports = function(){
   this.callbacks = [];
   this.callbacks['any-but-comma'] = false;
   this.callbacks['any-but-quote'] = false;
-  this.callbacks['cvs'] = false;
+  this.callbacks['csv'] = false;
   this.callbacks['double-quote'] = false;
   this.callbacks['field'] = false;
   this.callbacks['quoted'] = false;
@@ -41,7 +41,7 @@ module.exports = function(){
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'cvs', lower: 'cvs', index: 0, isBkr: false};
+  this.rules[0] = {name: 'csv', lower: 'csv', index: 0, isBkr: false};
   this.rules[1] = {name: 'field', lower: 'field', index: 1, isBkr: false};
   this.rules[2] = {name: 'quoted', lower: 'quoted', index: 2, isBkr: false};
   this.rules[3] = {name: 'quoted-text', lower: 'quoted-text', index: 3, isBkr: false};
@@ -54,7 +54,7 @@ module.exports = function(){
   this.udts = [];
 
   /* OPCODES */
-  /* cvs */
+  /* csv */
   this.rules[0].opcodes = [];
   this.rules[0].opcodes[0] = {type: 2, children: [1,2]};// CAT
   this.rules[0].opcodes[1] = {type: 4, index: 1};// RNM(field)
@@ -108,7 +108,7 @@ module.exports = function(){
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function(){
     var str = "";
-    str += "cvs           = field *(%d44 field)\n";
+    str += "csv           = field *(%d44 field)\n";
     str += "field         = quoted / text\n";
     str += "quoted        = %d34 quoted-text %d34\n";
     str += "quoted-text   = *(any-but-quote / double-quote)\n";

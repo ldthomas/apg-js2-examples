@@ -13,7 +13,6 @@
 // browserify setup.js > bundle.js
 // ```
 (function() {
-  var $ = require("jquery");
   var page = require("./page.js");
   $(document).ready(function() {
     var input = "";

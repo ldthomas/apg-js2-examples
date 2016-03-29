@@ -1,4 +1,4 @@
-// This module addresses the problem of matching the fields in Microsoft's Comma Separated Value (CVS) format.
+// This module addresses the problem of matching the fields in Microsoft's Comma Separated Value (CSV) format.
 // This problem is addressed in Jeffrey Friedl's book *Mastering Regular Expressions*, pg. 213
 // and you can compare this solution to his discussion there.
 //
@@ -17,8 +17,8 @@
   try {
     var apgexp = require("apg-exp");
     var apglib = require("apg-lib");
-    var grammar1 = new (require("./grammars/cvs-fields.js"))();
-    var grammar2 = new (require("./grammars/cvs.js"))();
+    var grammar1 = new (require("./grammars/csv-fields.js"))();
+    var grammar2 = new (require("./grammars/csv.js"))();
     var exp, str, rstr, result, value;
     str = 'Ten Thousand,10000, 2710 ,,"10,000","It\'s ""10 Grand"", baby",10K';
     exp = new apgexp(grammar1, "g");

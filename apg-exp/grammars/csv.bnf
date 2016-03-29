@@ -1,4 +1,4 @@
-cvs           = field *(%d44 field)
+csv           = field *(%d44 field)
 field         = quoted / text
 quoted        = %d34 quoted-text %d34
 quoted-text   = *(any-but-quote / double-quote)

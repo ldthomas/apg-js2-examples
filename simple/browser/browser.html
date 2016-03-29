@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>apg-exp</title>
+<meta charset="utf-8">
+
+<!--  jQuery, jQuery UI & jQuery UI CSS -->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/start/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<!--  apgexp.js && apgexp.css -->
+<link rel="stylesheet" href="apglib.css">
+<script src="apglib.js" charset="utf-8"></script>
+<script src="phone-number.js" charset="utf-8"></script>
+<script src="setup.js" charset="utf-8"></script>
+<!-- 
+ -->
+<style>
+body {
+	margin: 10px;
+	height: 100%;
+ font-size: 80%
+}
+
+#parse {
+	width: 100px;
+}
+
+#string {
+	font-family: monospace;
+}
+
+.comment {
+	font-size: 80%;
+	font-style: italic;
+}
+
+#tabs {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+#tabs-home {
+	height: 100%;
+}
+</style>
+</head>
+<body>
+ <div id="tabs">
+  <ul>
+   <li><a href="#tabs-home">home</a></li>
+   <li><a href="#tabs-stats">stats</a></li>
+   <li><a href="#tabs-trace">trace</a></li>
+  </ul>
+  <div id="tabs-home">
+  <p>
+  Parse a simple phone number format "(xxx)xxx-xxxx" using the SABNF grammar:<br>
+  <pre id="grammar-bnf"></pre>
+  </p>
+     <p>
+      <b>phone number:</b> <span class="comment">(the phone number to parse)</span><br>
+      <textarea id="string" wrap="off" rows="1" cols="20"></textarea>
+     </p>
+<!--      <p>
+      <input type="checkbox" id="stats" value="stats">stats
+      <input type="checkbox" id="trace"  value="trace">trace
+     </p>
+ -->     <p>
+      <input type="button" id="parse" value="parse" /><span id="parse-msg" class="comment">
+     </p>
+     <p id="result"></p>
+  </div>
+  <div id="tabs-stats"></div>
+  <div id="tabs-trace"></div>
+ </div>
+</body>
+</html>

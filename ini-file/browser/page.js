@@ -19,7 +19,6 @@ module.exports = function() {
     return names.sort();
   }
   try {
-    var $ = require("jquery");
     var apglib = require("apg-lib");
     var grammar = new (require("../ini-file.js"))();
     var parserCallbacks = new (require("../parser-callbacks.js"))();
