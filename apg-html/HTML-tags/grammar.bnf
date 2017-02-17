@@ -1,0 +1,6 @@
+tags  = %^ P %$
+P     = "<" name ">" text 1*(P text) "</" \%pname ">"
+      / "<" name ">" text "</" \%pname ">"
+text  = *(%d32-59 / %d61-126 / %d9-10 / %d13)
+name = 1*(%d65-90 / %d97-122)
+

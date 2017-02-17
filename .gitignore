@@ -6,9 +6,7 @@
 *.zip
 *.tgz
 cmsg
-**html/
 **RemoteSystemsTempFiles/
-**workfiles/
 **node_modules/
 **test/
 **docs/

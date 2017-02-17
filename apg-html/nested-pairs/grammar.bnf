@@ -1,0 +1,5 @@
+P    = L text 1*(P text) R / L text R
+L    = "<"
+R    = ">"
+text = *(%d32-59/ %d61 / %d63-126)
+

@@ -1,0 +1,18 @@
+SIP/2.0 200 = 2**3 * 5**2 `xD0`xBD`xD0`xBE `xD1`x81`xD1`x82`xD0`xBE `xD0`xB4`xD0`xB5`xD0`xB2`xD1`x8F`xD0`xBD`xD0`xBE`xD1`x81`xD1`x82`xD0`xBE `xD0`xB4`xD0`xB5`xD0`xB2`xD1`x8F`xD1`x82`xD1`x8C - `xD0`xBF`xD1`x80`xD0`xBE`xD1`x81`xD1`x82`xD0`xBE`xD0`xB5`x0D
+Via: SIP/2.0/UDP 192.0.2.198;branch=z9hG4bK1324923`x0D
+Call-ID: unreason.1234ksdfak3j2erwedfsASdf`x0D
+CSeq: 35 INVITE`x0D
+From: sip:user@example.com;tag=11141343`x0D
+To: sip:user@example.edu;tag=2229`x0D
+Content-Length: 154`x0D
+Content-Type: application/sdp`x0D
+Contact: <sip:user@host198.example.com>`x0D
+`x0D
+v=0`x0D
+o=mhandley 29739 7272939 IN IP4 192.0.2.198`x0D
+s=-`x0D
+c=IN IP4 192.0.2.198`x0D
+t=0 0`x0D
+m=audio 49217 RTP/AVP 0 12`x0D
+m=video 3227 RTP/AVP 31`x0D
+a=rtpmap:31 LPC`x0D

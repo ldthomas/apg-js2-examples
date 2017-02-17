@@ -1,0 +1,13 @@
+<h2 id="simple-example">Simple Example</h2>
+
+<h4 id="the-grammar">The Grammar</h4>
+
+<p>The <code>grammar.bnf</code> is a simple grammar for defining a phone number as simply a 3-digit area code, a 3-digit office code and a 4-digit subscriber number. We will use it to take a look at the trace a simple description of what it shows.</p>
+
+<h4 id="the-input">The Input</h4>
+
+<p>The input, <code>phone-number.txt</code> is unremarkable. Paste it into the <code>Input</code> panel as usual, but before parsing, open the <code>Configure</code> panel and check the Trace on radio button. Now switch back to the <code>Input</code> panel and click <code>Parse Input</code>. Open the <code>Trace</code> panel. </p>
+
+<p>This is just the parse tree, splayed out to show separately the parser’s downward and upward movement through the tree nodes. It starts at the root, start rule, <code>phone-number</code> and next visits <code>area-code</code>. Then you can watch it go down and up through each digit, matching the digit on the upward swing and removing the matched phrase from the string for the next try. When the three area code digits are matched it proceeds up through the <code>area-code</code> rule node and matches it. Here you can see all three digits matched and then as it heads down the next node, <code>sep</code>, you see that the matched 3 digits have been removed. On it goes until all characters have been matched and the parser has returned on its upward swing to the root node.</p>
+
+<p>Now go back to the <code>Input</code> panel and introduce an error. Replace 989 with 98x and parse again. This time you get a parsing error. Check the trace. See how easy it is to see that the parser failed at the third area code digit. That’s what makes the trace such a powerful debugging aid.</p>

@@ -1,0 +1,15 @@
+<h2 id="html-tags">HTML Tags</h2>
+
+
+
+<h4 id="the-grammar">The Grammar</h4>
+
+<p>The <code>grammar.bnf</code> is a recursive grammar for matching HTML tags. The match requires that the name in the end tag match the name in the start tag. This is accomplished with the “parent backreference” operator <code>\%p</code>.</p>
+
+
+
+<h4 id="the-input">The Input</h4>
+
+<p>The file <code>HMTL.txt</code> is the input. It contains nested HTML tags. Paste it into the <code>Input</code> panel and click <code>Parse Input</code>. Select the <code>P</code> rule name from the drop-down box. Notice that there are 3 matches to this rule. The first match is the entire string because it is the outer-most HTML tag. However, click the forward arrow, ⏵, and watch it highlight the inner tags.</p>
+
+<p>To convince yourself that this grammar really only matches tags with matching names in the end tag, go back to the <code>Input</code> panel and edit the last tag from &lt;/div&gt; to, say, &lt;/div2&gt; and click <code>Parse Input</code> again. Now you will see the <code>State</code> panel open to indicate that the parse failed.</p>

@@ -1,0 +1,44 @@
+<h3 id="session-initiation-protocol-sip">Session Initiation Protocol (SIP)</h3>
+
+<p>Session Initiation Protocol (SIP, <a href="https://tools.ietf.org/html/rfc3261">RFC 3261</a>) has been chosen because it is a large grammar (313 rules) and because it is of considerable commercial interest, especially in the telecom industry. It also affords a real-world opportunity to examine the ability of <strong>apg.html</strong> to handle non-ASCII input characters.</p>
+
+<p>This example assumes the installation,</p>
+
+<pre><code>https://github.com/ldthomas/apg-js2-examples.git examples
+cd examples/apg-html/SIP
+</code></pre>
+
+
+
+<h4 id="the-grammar">The Grammar</h4>
+
+<p>The file <code>grammar.bnf</code> is the SIP grammar. It is the grammar from RFC 3261 with a few minor changes to make it compatible with the disambiguation rules of <strong>APG</strong>. That is, “first match wins” on alternates (also called prioritized-choice) and the greedy repetition operators, which always consume the largest possible string without backtracking to try any shorter alternates.</p>
+
+<p>Open <code>grammar.bnf</code> in a text editor, copy and paste it into the <code>Generator</code> panel of the <strong>apg.html</strong> interface. Click <code>Generate</code> and you will be taken to the <code>Parser</code> panel. </p>
+
+
+
+<h4 id="the-parser">The Parser</h4>
+
+<p>When the <code>Parser</code> panel opens it will show you the generated parser.</p>
+
+
+
+<h4 id="the-input">The Input</h4>
+
+<p>There are two input files. These have been taken from the SIP torture tests, <a href="https://www.ietf.org/rfc/rfc4475.txt?number=4475">RFC 4475</a>, and two of them will be used to test our generated parser. SIP messages are primarily ASCII in nature, but some fields allow “octets” of arbitrary binary characters.</p>
+
+<p><strong>ASCII input:</strong> The file <code>longreq.txt</code> is message 3.1.1.7 from RFC 4475. While it is a valid SIP message, it has some nasty, long entries. However, it consists of only ASCII characters. Open the file in a text editor and past it into the <code>Input</code> sub-panel and click <code>Parse Input</code>. Peruse the matched phrases. Use the <code>Configure</code> panel, if you like, and re-parse it to review the trace or other changes.</p>
+
+<p><strong>binary input:</strong> The file <code>unreason.txt</code> is message 3.1.1.12 from RFC 4475. It contains non-ASCII binary characters and as such cannot be used in the <code>Input</code> &lt;textarea&gt;. To use it, we need first to encode it to base64, or escaped format. These two encoded files were generated with:</p>
+
+<p><code>npm install -g apg-conv</code> <br>
+<code>apg-conv -s unreason.txt -st binary -dt binary:base64 &gt; unreason-b64.txt</code> <br>
+<code>apg-conv -s unreason.txt -st binary -dt escaped &gt; unreason-esc.txt</code></p>
+
+<p>First, open <code>unreason.txt</code> in a text editor and paste it into the <code>Input</code> &lt;textarea&gt;.
+Click <code>Parse Input</code> and the <code>Phrases</code> panel will open.
+There you will see the error messages, indicating that the message contains illegal, binary characters.</p>
+<p>Next, open <code>unreason-esc.txt</code> in a text editor and paste it into the <code>Input</code> &lt;textarea&gt;. Click <code>Parse Input</code> and the <code>Phrases</code> panel will open.</p>
+
+<p>Finally, do the same with <code>unreason-b64.txt</code>. This time, the click on <code>Parse Input</code> will bring up a dialog asking you to select the encoding underlying the base 64. Select <code>binary</code>. The base 64 will be translated into escaped encoding will replace it in the <code>Input</code> &lt;textarea&gt;.  Clicking <code>Parse Input</code> will again give the same result. </p>
