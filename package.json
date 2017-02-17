@@ -16,6 +16,7 @@
   },
   "files": [
     "apg",
+    "apg-html",
     "apg-exp",
     "ast",
     "back-reference",
