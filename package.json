@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "apg-lib": "3.x",
-    "apg-exp": "1.x"
+    "apg-exp": "2.x"
   },
   "keywords": [
     "apg",
