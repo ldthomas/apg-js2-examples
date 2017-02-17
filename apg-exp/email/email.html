@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>apg-exp</title>
+<meta charset="utf-8">
+
+<!--  CDN stuff - jQuery, jQuery UI & jQuery UI CSS -->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/start/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+<!--  apgexp stuff -->
+<link rel="stylesheet" href="apgexp.css">
+<script src="apgexp.js"></script>
+ 
+<!--  application stuff -->
+<link rel="stylesheet" href="./email.css">
+<script src="./email.js" charset="utf-8"></script>
+</head>
+<body>
+ <div id="css-table">
+  <div id="col-1">
+   <ul>
+    <li><a href="#col-1-tab-1">Example 1</a></li>
+   </ul>
+   <div id="col-1-tab-1">
+   <article>
+    <h1>email address</h1>
+    <p class="title">
+     <b>RegExp:</b>
+       </p>
+    <textarea class="input" id="regexp-def" disabled></textarea>
+    </p>
+    <p>
+     <p class="title"><b>apg-exp:</b>
+    </p>
+    <textarea class="input" id="apgexp-def" disabled></textarea>
+    </p>
+      <p class="title"><b>email address:</b>
+    </p>
+     <textarea class="input" id="email-address"></textarea>
+    </p>
+    <p>
+     <button id="tryit" class="tryit">try it</button>
+    </p>
+   </div>
+   </article>
+  </div>
+  <div id="col-2">
+   <ul>
+    <li><a href="#col-2-tab-1">apg-exp</a></li>
+   </ul>
+   <div id="col-2-tab-1">
+   <article>
+    <p>
+     All phrases captured by all rules are retained along with the index to the first letter where the capture was found. Display of the character
+     rules,
+     <code>local-char, sub-domain-char, top-domain-char, alpha, num & special</code>
+     has been suppressed for clarity. Note that the first rule in the syntax always defines the full phrase to be matched.
+     <code>result[0]</code>
+     is simply an alias for compatibility with RegExp.
+    </p>
+    <div id="pattern-note">
+    <p>
+    <i><b>Note:</b> First-time users
+    are often confused about how, exactly, that big, multi-line ABNF pattern syntax is introduced into the <b>apg-exp</b> object.
+    The short answer is, exactly the same way that a regular expression is introduced into the RegExp object.
+    It is passed into the constructor as a single string.
+    </p>
+    <pre>
+var exp = new ApgExp(pattern);
+var result = exp.exec(str);
+</pre>
+    The only difference between this and constructing a RegExp object is that the pattern syntax is a multi-line string.
+    The ABNF named rules must be on separate lines and end with a newline (continuation lines begin with a space or tab).
+    <ul>
+    <li>
+    In a web application, the pattern is often read from a textarea, as is done in this example (see the function <code>executeApgExp()</code>).
+    </li>
+    <li>
+    In a desktop setting, the pattern is often read from a multi-line text file.
+    </li>
+    <li>
+    For simple patterns or quick testing they might simply be introduced as constructed strings:
+    <pre>
+var pattern = "";
+pattern += 'email-address   = %^ local "@" domain %$\n';
+pattern += 'local           = local-word *("." local-word)\n';
+  ...
+</pre>
+    </li>
+    </ul></i>
+    </div>
+    <div id="apgexp-result"></div>
+   </div>
+   </article>
+  </div>
+  <div id="col-3">
+   <ul>
+    <li><a href="#col-3-tab-1">RegExp</a></li>
+   </ul>
+   <div id="col-3-tab-1">
+   <article>
+    <p>
+     This syntax is taken from the <a class="link" href="http://www.amazon.com/Regular-Expressions-Cookbook-Jan-Goyvaerts/dp/1449319432">
+      <i>Regular Expressions Cookbook</i>
+     </a> by Goyvaerts and Levithan, pg. 245. Some groupings have been added to capture the local and domain parts (
+     <code>result[1]</code> & <code>result[4]</code>, respectively) and the local, sub-domain and top-domain words.
+     In the case where a single group captures more than one phrase, only the last capture is retained.
+     This can be seen in this example with the "local word" and "sub domain" groups,
+     <code>result[3]</code> & <code>result[5]</code>, respectively.
+     </p>
+     <p>
+     Note that many
+     <a class="link" href="http://www.regular-expressions.info/tools.html">other languages</a> offer more features
+     and even with RegExp there are <a class="link" href="http://xregexp.com/">good tools</a> for easier use, more features and <a
+      class="link" href="https://www.regexbuddy.com/">debugging help</a>.
+      But with native JavaScript RegExp, this is about all you get.
+    </p>
+    <div id="regexp-result"></div>
+   </article>
+   </div>
+  </div>
+ </div>
+</body>
+</html>

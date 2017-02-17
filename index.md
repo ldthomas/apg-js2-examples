@@ -1,10 +1,9 @@
 [<span style="font-size: 150%;font-weight:bold;">&#8962;</span> home](http://coasttocoastresearch.com/)
 
-**Annotated Table of Contents**<br>
-*JavaScript APG Version 2.0, Examples*
+## Annotated Table of Contents
+### JavaScript APG Version, Examples
 
 Each folder contains a complete example.
-They are listed here roughly in order of simplest to most complex.
 
 0. The GitHub & npm README page.
 <ul>
@@ -15,8 +14,14 @@ They are listed here roughly in order of simplest to most complex.
 <ul>
 <li>See the scripts in the file `package.json` for some example of running `apg`, the parser generator.</li>
 </ul>
+0. `apg.html` - demonstrate use of the web page GUI parser generator.
+<ul>
+<li>See the README.html files in each example sub-directory.
+</ul>
 0. `apg-exp` - demonstrates APG Expressions - the new APG regex-like, pattern-matching engine.
 <ul>
+<li>The `apg-exp/email` folder has an example of using `apg-exp` in a web page.</li>
+<li>The `apg-exp/grammars` folder has all of the grammars used in the various demonstrations.</li>
 <li>[`apg-exp/ast.js`](./apg-exp/ast.html) - demonstrates using the Abstract Syntax Tree of the matched pattern</li>
 <li>[`apg-exp/csv.js`](./apg-exp/csv.html) - demonstrates dealing with Microsoft's Comma Separated Values format</li>
 <li>[`apg-exp/dangling-else.js`](./apg-exp/dangling-else.html) - demonstrates translating the famous "dangling else" problem in the <code>replace()</code> function</li>
@@ -53,9 +58,10 @@ They are listed here roughly in order of simplest to most complex.
 0. `execute-rule` - demonstrate the use of the parser's functions `executeRule()` and `executeUdt()`
 from user-written callback functions.
 <ul>
-<li>[`execute-rule/colors-app.js`](./execute-rule/colors-app.html) - the "colors" application  demonstrating a rule name callback function executing a `UDT` with a call to the parser's function `executeUdt()`.</li>
+<li>[`execute-rule/colors-app.js`](./execute-rule/colors-app.html) - the "colors" application 
+demonstrating a rule name callback function executing a `UDT` with a call to `evaluateUdt()`.</li>
 <li>[`execute-rule/colors-callbacks.js`](./execute-rule/colors-callbacks.html) - the "colors" application
-callback functions.</li>
+<li>[`execute-rule/more-app.js`](./execute-rule/more-app.html) - the "more" application  demonstrating a UDT callback function executing a rule with `evaluateRule()`.</li>
 <li>[`execute-rule/more-setup.js`](./execute-rule/more-setup.html) - setting up a parser for a
  simple grammar with a UDT (more.bnf).</li>
 <li>[`execute-rule/more-app.js`](./execute-rule/more-app.html) - the "more" application demonstrating callback functions
@@ -69,13 +75,6 @@ might be defined, parsed and translated into usable information.<ul>
 <li>[`ini-file/basic.js`](./ini-file/basic.html) - parsing out the ini file parts</li>
 <li>[`ini-file/bad-input.js`](./ini-file/bad-input.html) - how it performs with a badly-formed ini file</li>
 <li>[`ini-file/trace.js`](./ini-file/trace.html) - generate a trace of the parser</li>
-</ul>
-0. `ini-file/browser` - The same as above except that it demonstrates running it in a web page rather
-than as a desktop app. 
-<ul>
-<li>[`ini-file/browser/setup.js`](./ini-file/browser/setup.html) - when the page loads, initialize the textbox and set
-the event handler for the "parse" button.</li>
-<li>[`ini-file/browser/page.js`](./ini-file/browser/page.html) - executed when the "parse" button is clicked.</li>
 </ul>
 0. `look-ahead` - a demonstration of grammars with look ahead operators (`&` and `!`) and the `AST`
 behavior with them.<ul>
@@ -96,15 +95,11 @@ a make-shift grammar to demonstrate nesting of positive and negative look-ahead 
 <li>[`look-behind/positive.js`](./look-behind/positive.html) - demonstrates the positive look behind operator</li>
 </ul>
 0. `simple` - a basic demonstration of how to set up a parser. Nothing fancy, just the basics.<ul>
+<li>The `browser` directory has an example of using `apg-lib` in a web application.</li>
 <li>[`simple/setup.js`](./simple/setup.html) - set up a basic parser for a simple phone number grammar.</li>
 <li>[`simple/minimal.js`](./simple/minimal.html) - just parse a phone number and print its parts</li>
 <li>[`simple/stats.js`](./simple/stats.html) - same, but generate and display the parsing statistics</li>
 <li>[`simple/trace.js`](./simple/trace.html) - same, but generate and display the parser trace</li>
-</ul>
-0. `simple/browser` - A demonstration of how to run the `simple` example in a browser web page
-using `apglib.js` and `apglib.css`.<ul>
-<li>[`simple/browser/setup.js`](./simple/browser/setup.html) - set up a basic parser for a simple phone number grammar.</li>
-<li>[`simple/browser/phone-number.js`](./simple/browser/phone-number.html) - the **APG**-generated phone number grammar</li>
 </ul>
 0. `substrings` - demonstrate the substring parsing option.
 <ul>

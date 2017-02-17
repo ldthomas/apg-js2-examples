@@ -1,0 +1,128 @@
+/* Pen-specific styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #000;
+  font-size: .8rem;
+  line-height: 150%;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+article {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+b {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+i {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+}
+
+textarea {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  cursor: hand;
+}
+
+p.title {
+  margin: 0px 0px 3px 0px;
+}
+
+a.link {
+  color: #4284B0;
+}
+
+a.link:visited {
+  color: #9c4be7;
+}
+
+/* Pattern styles */
+#css-table {
+	display: table;
+}
+
+#col-1 {
+	display: table-cell;
+	width: 30%;
+	border: 1px solid #4284B0;
+}
+
+#col-2 {
+	display: table-cell;
+	width: 35%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #4284B0;
+}
+
+#col-3 {
+	display: table-cell;
+	width: 35%;
+	border: 1px solid #4284B0;
+}
+
+textarea.input {
+	font-size: .9rem;
+	font-family: monospace;
+}
+
+pre{
+  font-size: .9rem;
+  font-family: monospace;
+  line-height: 100%;
+}
+
+#regexp-def, #apgexp-def, #email-address {
+	width: 95%;
+}
+
+#regexp-def {
+	height: 5em;
+}
+
+#apgexp-def {
+	height: 20em;
+}
+
+.tryit {
+	font-size: 1em;
+	width: 5rem;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.discussion {
+	display: inline;
+	font-size: .9rem;
+	line-height: 125%;
+}
+
+.title {
+	margin: .25rem 0;
+}
+
+div#pattern-note{
+	font-size: .9em;
+	line-height: 1.1em;
+}

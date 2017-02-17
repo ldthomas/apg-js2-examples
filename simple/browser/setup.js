@@ -20,7 +20,7 @@ var setup = function() {
     // parse an input string.
     // `phone-number.js` is the output of [`apg`](https://github.com/ldthomas/apg-js2) for the SABNF grammar
     // defined by the `phone-number.bnf` file.
-    var grammar = new grammarConstructor();
+    var grammar = new grammarObject();
     // These identifiers are used by the callback functions to identify the state of the parser
     // at the time the callback function was called.
     var id = apglib.ids;
@@ -174,7 +174,7 @@ var setup = function() {
   }
 }
 $(document).ready(function(){
-  var con = new grammarConstructor();
+  var con = new grammarObject();
   $("#grammar-bnf").html(con.toString())
   $("#parse").click(setup);
   $("#string").val("(850)555-4567");

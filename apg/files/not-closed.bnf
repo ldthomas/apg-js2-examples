@@ -1,7 +1,0 @@
-start = A / B / C / D / E
-A = "a
-B = 'b
-C = "c" / ("open " "group"
-D = "d" / ["open " "option"
-E = < prose value
-

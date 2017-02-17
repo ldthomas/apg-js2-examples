@@ -1,0 +1,5 @@
+attrs = attrs "x" / "y"
+A = A
+B = "b" B
+C = "c" / ""
+

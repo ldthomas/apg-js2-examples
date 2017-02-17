@@ -7,11 +7,12 @@
     "test": "node ./ast/xml.js",
     "apg-help": "apg -h",
     "apg-version": "apg -v",
-    "apg-crlf": "apg --in=./apg/files/mixedLineEnds.bnf --CRLF && hexdump -C ./apg/files/mixedLineEnds.bnf && hexdump -C ./apg/files/mixedLineEnds.bnf.crlf",
-    "apg-strict": "apg --in=./apg/files/lfOnly.bnf --strict && echo 'see ./html/grammar.html for grammar errors'",
-    "apg-errors": "apg --in=./apg/files/bad-elements.bnf && echo 'see ./html/grammar.html for grammar errors'",
-    "apg-rules": "apg --in=./apg/files/multiple-rules.bnf && echo 'see ./html/grammar.html for grammar errors'",
-    "apg-closed": "apg --in=./apg/files/not-closed.bnf && echo 'see ./html/grammar.html for grammar errors'"
+    "apg-strict": "apg --in=./apg/lf-only.bnf --strict",
+    "apg-errors": "apg -i ./apg/bad-elements.bnf",
+    "apg-rules": "apg --in=./apg/multiple-rules.bnf",
+    "apg-attributes": "apg --in=./apg/attr-errors.bnf",
+    "apg-multi": "apg -i ./apg/first.bnf,./apg/second.bnf -o multi.js",
+    "apg-multiple": "apg -i ./apg/first.bnf --in=./apg/second.bnf --out=multiple.js"
   },
   "files": [
     "apg",
@@ -31,8 +32,8 @@
     "docco-gen"
   ],
   "dependencies": {
-    "apg-lib": "*",
-    "apg-exp": "*"
+    "apg-lib": "3.x",
+    "apg-exp": "1.x"
   },
   "keywords": [
     "apg",
@@ -42,6 +43,7 @@
     "regex",
     "regexp",
     "patterns",
+    "pattern-matching",
     "ABNF"
   ],
   "repository": {
