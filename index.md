@@ -10,17 +10,38 @@ Each folder contains a complete example.
 <li>[README.md](./README.html)</li>
 </ul>
 
+0. `weblinks` - the weblinks folder has copies of all of the bundled applications for web page use.
+
 0. `apg` - demonstrate use of the parser generator.
 <ul>
 <li>See the scripts in the file `package.json` for some example of running `apg`, the parser generator.</li>
 </ul>
+
 0. `apg.html` - demonstrate use of the web page GUI parser generator.
 <ul>
-<li>See the README.html files in each example sub-directory.
+<li>[`apg-html/README.md`](./apg-html/README.html) - general instructions on testing the apg.html application.</li>
 </ul>
+
+0. `apg-api` - using the APG API.
+<ul>
+<li>[`apg-api/generator.js`](./apg-api/generator.html) - generate a grammar object in a single step.</li>
+<li>[`apg-api/separate.js`](./apg-api/separate.html) - generate a grammar object in a multiple steps.</li>
+<li>[`apg-api/webpage/apg-api.js`](./apg-api/webpage/apg-api.html) - generate a grammar object in a web page application.</li>
+</ul>
+
+0. `apg-conv` - using the data encoding conversion application.
+<ul>
+<li>[`apg-conv/README.md`](./apg-conv/README.html) - instructions for running the examples.</li>
+</ul>
+
+0. `apg-conv-api` - examples of using the data encoding conversion API.
+<ul>
+<li>[`apg-conv-api/test-suite.js`](./apg-conv-api/test-suite.html) - a suite of tests.</li>
+<li>[`apg-conv-api/webpage/web-conv.js`](./apg-conv-api/webpage/web-conv.html) - a suite of web-page applications.</li>
+</ul>
+
 0. `apg-exp` - demonstrates APG Expressions - the new APG regex-like, pattern-matching engine.
 <ul>
-<li>The `apg-exp/email` folder has an example of using `apg-exp` in a web page.</li>
 <li>The `apg-exp/grammars` folder has all of the grammars used in the various demonstrations.</li>
 <li>[`apg-exp/ast.js`](./apg-exp/ast.html) - demonstrates using the Abstract Syntax Tree of the matched pattern</li>
 <li>[`apg-exp/csv.js`](./apg-exp/csv.html) - demonstrates dealing with Microsoft's Comma Separated Values format</li>
@@ -39,6 +60,7 @@ Each folder contains a complete example.
 <li>[`apg-exp/udt.js`](./apg-exp/udt.html) - demonstrates how to insert user-written, phrase-matching code</li>
 <li>[`apg-exp/unicode.js`](./apg-exp/unicode.html) - demonstrates the Unicode mode and how to use it</li>
 <li>[`apg-exp/word-boundaries.js`](./apg-exp/word-boundaries.html) - demonstrates defining and matching word boundaries</li>
+<li>[`apg-exp/webpage/email.js`](./apg-exp/webpage/email.html) - using apg-exp in a web page application.</li>
 </ul>
 0. `ast` - demonstrate translating and displaying the Abstract Syntax Tree.
 <ul>
@@ -95,11 +117,11 @@ a make-shift grammar to demonstrate nesting of positive and negative look-ahead 
 <li>[`look-behind/positive.js`](./look-behind/positive.html) - demonstrates the positive look behind operator</li>
 </ul>
 0. `simple` - a basic demonstration of how to set up a parser. Nothing fancy, just the basics.<ul>
-<li>The `browser` directory has an example of using `apg-lib` in a web application.</li>
 <li>[`simple/setup.js`](./simple/setup.html) - set up a basic parser for a simple phone number grammar.</li>
 <li>[`simple/minimal.js`](./simple/minimal.html) - just parse a phone number and print its parts</li>
 <li>[`simple/stats.js`](./simple/stats.html) - same, but generate and display the parsing statistics</li>
 <li>[`simple/trace.js`](./simple/trace.html) - same, but generate and display the parser trace</li>
+<li>[`simple/webpage/setup.js`](./simple/webpage/setup.html) - a web page application example</li>
 </ul>
 0. `substrings` - demonstrate the substring parsing option.
 <ul>

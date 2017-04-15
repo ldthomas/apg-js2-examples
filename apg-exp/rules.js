@@ -55,21 +55,21 @@
     // </li>
     // </ul>
     page = result.toHtmlPage();
-    htmlName = "ini-first-result.html";
+    htmlName = "ini-first-result";
     writeHtml(page, htmlName);
     // Let's say we want to see everything except the `alpha`, `digit` and `owsp` phrases.
     // We can exclude those with a call to the `exp.exclude()` function.
     exp.exclude([ "alpha", "digit", "owsp" ]);
     result = exp.exec(str);
     page = result.toHtmlPage();
-    htmlName = "ini-exclude-result.html";
+    htmlName = "ini-exclude-result";
     writeHtml(page, htmlName);
     // Or we can do it the other way around with the `exp.include()` function.
     // Say that we only want to see the `section-name`, `key` and `value`.
     exp.include([ "section-name", "key", "value" ]);
     result = exp.exec(str);
     page = result.toHtmlPage();
-    htmlName = "ini-include-result.html";
+    htmlName = "ini-include-result";
     writeHtml(page, htmlName);
     // Now that we've show the display of the rules (see [display.js]() for more on display functions)
     // let's take a look at how to handle them programmatically.
@@ -105,12 +105,12 @@
     }
     html += '</pre>\n';
     html = apglib.utils.htmlToPage(html);
-    htmlName = "ini-enumeration.html";
+    htmlName = "ini-enumeration";
     writeHtml(html, htmlName);
     // Briefly, we will also show here the `last match` information retained in the `apg-exp` object.
     html = exp.toHtml();
     html = apglib.utils.htmlToPage(html);
-    htmlName = "ini-last-match.html";
+    htmlName = "ini-last-match";
     writeHtml(html, htmlName);
     // Programmatically, we can access the `last match` data similarly. A partial display is given here.
     html = '<h3>last match</h3>\n';
@@ -127,7 +127,7 @@
     }
     html += '</pre>\n';
     html = apglib.utils.htmlToPage(html);
-    htmlName = "ini-last-match-program.html";
+    htmlName = "ini-last-match-program";
     writeHtml(html, htmlName);
   } catch (e) {
     console.log("EXCEPTION: " + e.message);

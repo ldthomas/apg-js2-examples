@@ -46,7 +46,7 @@
       console.log(result.toText());
     }
     page = apglib.utils.htmlToPage(html);
-    htmlName = "word-boundaries.html";
+    htmlName = "word-boundaries";
     writeHtml(page, htmlName);
   } catch (e) {
     console.log("EXCEPTION: " + e.message);

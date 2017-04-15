@@ -1,10 +1,14 @@
 ## JavaScript APG Examples
+
 #### Description:  
 This repository contains a number of detailed examples demonstrating how to use:
-* [apg](https://github.com/ldthomas/apg-js2), the parser generator
-* **apg.html** the new, web page, GUI version of the parser generator
+* [apg](https://github.com/ldthomas/apg-js2), the parser generator command-line application, built from the new **apg-api**.
+* [apg-api](https://github.com/ldthomas/apg-js2-api), an API for the parser generator
+* apg.html the new, web page, GUI version of the parser generator
 * [apg-lib](https://github.com/ldthomas/apg-js2-lib), the supporting library of core parsing functions
 * [apg-exp](https://github.com/ldthomas/apg-js2-exp), the RegExp-like pattern-matching engine.    
+* [apg-conv](https://github.com/ldthomas/apg-conv), the data encoding conversion application, built from the new **apg-conv-api**.
+* [apg-conv-api](https://github.com/ldthomas/apg-conv-api), an API for data encoding and conversion
 
 #### Installation:  
 ```
@@ -23,44 +27,16 @@ In the package.json are the scripts:
 "apg-attributes": "apg --in=./apg/attr-errors.bnf",
 "apg-multi": "apg -i ./apg/first.bnf,./apg/second.bnf -o multi.js",
 "apg-multiple": "apg -i ./apg/first.bnf --in=./apg/second.bnf --out=multiple.js"
+"apg-conv-api": "node ./apg-conv-api/test-suite $1"
 ```  
 You can run any of these APG tests with npm. For example,<br>
 * `npm run apg-version` should return something like<br>
 `JavaScript APG 3.0.0, Copyright (C) 2017 Lowell D. Thomas, all rights reserved`
 * etc.
 
-**apg.html Examples:**    
-In the directory, `examples/apg-html` is a sub-directory for each example.
-For each example there is a `README.html` file with instructions and information about the example.
-Copy and paste the `grammar.bnf` file into the `Generate` panel to generate a parser for that grammar.
-Then copy and paste one of the `*.txt` files into the `Input` panel to test the generated parser.
-
-**apg-lib examples:**  
-There are many examples here to demonstrate the most important features of `apg-lib`.
-For example, the `ast` directory has examples of creating and using the Abstract Syntax Tree (AST).
-The `trace` directory has examples of using the trace facility, APG's version of a debugger.
-To run the examples, change to the directory for the desired example and execute any file with `node.js`.
-e. g.
-```
-cd ast
-node xml.js
-```
-Note that the `simple` test has a sub-directory `simple/browser` with an example of how to use `apg-lib` in a web application.
-
-**apg-exp examples:**  
-The `apg-exp` directory has many examples of using the new pattern-matching engine.
-To run the examples, change to the directory for the desired example and execute any file with `node.js`.
-e. g.
-```
-cd apg-exp
-node flags.js
-```
-The grammars used in all of these examples are in `grammars` sub-directory. 
-Many of these examples will generate HTML output files and create an `html` directory where they will be placed.
-
-Note, also, that the `email` sub-directory has an example of using `apg-exp` in a web application.
-
-**Documentation:**  
+#### Documentation:  
+Where applicable, web page usage examples along with command line node.js examples are given.
+For more details about how to run them, see the documentation for the individual examples.
 The documentation is in the code in [`docco`](https://jashkenas.github.io/docco/) format.
 To generate the documentation, from the package directory:
 ```

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>web-conv</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../weblinks/apg-lib-min.css">
+</head>
+<body onload="onload()">
+<h1>Test the bundled apg API</h1>
+<p>Have a look at "apg-api.html" & "apg-api.js" to see how it is used.</p>
+<p>Click on "generate" to generate a grammar object from the SABNF grammar.<br>
+(Errors are not reported in detail.)</p>
+<p>
+Then click the "parse" button to use the generated grammar object to parse the input string.</p>
+  <p class="title">
+    <b>SABNF grammar:</b>
+  </p>
+  <textarea id="grammar" rows="20" cols="75" style="float: left;"></textarea>
+  <p>&nbsp;&nbsp;<input type="button" value="generate" style="width: 100px;" onclick="generate()"></p>
+  <p class="title" style="clear: left;">
+  <br>
+    <b>SABNF input string:</b>
+  </p>
+  <textarea id="input" rows="20" cols="75" style="float: left;"></textarea>
+  <p>&nbsp;&nbsp;<input type="button" value="parse" style="width: 100px;" onclick="parse()"></p>
+  <p class="title" style="clear: left;">
+    <br><b>output:</b>
+  </p>
+  <div id="output">Translation will appear here.</div>
+  <script src="../../weblinks/apg-lib-min.js"></script>
+  <script src="../../weblinks/apg-api-min.js"></script>
+  <script src="./apg-api.js" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+apg-conv -st utf8 -dt utf16le:base64 -s ./utf8.txt -d ./utf16be.txt
+cat ./utf16be.txt
+rm ./utf16be.txt
+echo
+exit 0

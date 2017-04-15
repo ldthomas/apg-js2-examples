@@ -50,7 +50,7 @@
     }
     /* display the greek words, represented as HTML entities, on a page */
     page = apglib.utils.htmlToPage(html);
-    htmlName = "unicode-words.html";
+    htmlName = "unicode-words";
     writeHtml(page, htmlName);
   } catch (e) {
     console.log("EXCEPTION: " + e.message);

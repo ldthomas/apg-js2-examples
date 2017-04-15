@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# move current versions of web files to examples
+cp ../apg-api/apg-api-min.js ./weblinks
+cp ../apg-api/apg-api.js ./weblinks
+cp ../apg-lib/apg-lib-min.js ./weblinks
+cp ../apg-lib/apg-lib-min.css ./weblinks
+cp ../apg-lib/apg-lib.js ./weblinks
+cp ../apg-lib/apg-lib.css ./weblinks
+cp ../apg-conv-api/apg-conv-api-min.js ./weblinks
+cp ../apg-conv-api/apg-conv-api.js ./weblinks
+cp ../apg-exp/apg-exp-min.js ./weblinks
+cp ../apg-exp/apg-exp.js ./weblinks
+cp ../apg-exp/apg-exp-min.css ./weblinks
+cp ../apg-exp/apg-exp.css ./weblinks
+exit 0

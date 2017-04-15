@@ -1,0 +1,6 @@
+#!/bin/bash
+
+apg-conv -st ascii -dt crlf:ascii -s ./lf.txt -d ./crlf.txt
+hexdump -C ./crlf.txt
+rm ./crlf.txt
+exit 0

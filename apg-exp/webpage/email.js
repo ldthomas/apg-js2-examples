@@ -1,16 +1,19 @@
 // Note that
-// <script src="apgexp.js"></script>
-// defines variables:
-// ApgExp - the apg-exp constructor
+//````
+// <script src="../../weblinks/apg-exp-min.js"></script>
+//````
+// defines variables:<br>
+// ApgExp - the apg-exp constructor<br>
+// and <br>
 // apglib - the APG library
 //
-//main function
+/* main function */
 var execute = function() {
   executeApgExp();
   executeRegExp();
 }
 
-// execute apg-exp
+/* execute apg-exp */
 var executeApgExp = function(){
   var exp, result, output;
   exp = new ApgExp($("#apgexp-def").val());
@@ -26,7 +29,7 @@ var executeApgExp = function(){
   $("#apgexp-result").html(output);
 }
 
-//execute RegExp
+/* execute RegExp */
 var executeRegExp = function(){
   var exp, result, output;
   exp = new RegExp($("#regexp-def").val(), "i");
@@ -41,7 +44,7 @@ var executeRegExp = function(){
   $("#regexp-result").html(output);
 }
 
-// format RegExp result to HTML table
+/* format RegExp result to HTML table */
 var regToHtml = function(result) {
   var html = "";
   var caption = "result:";

@@ -119,7 +119,7 @@
     html += txt + "\n";
     html += "</pre>\n";
     page = apglib.utils.htmlToPage(html);
-    htmlName = "float.html";
+    htmlName = "float";
     writeHtml(page, htmlName);
   } catch (e) {
     console.log("EXCEPTION: " + e.message);

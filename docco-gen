@@ -1,6 +1,13 @@
 #!/bin/bash
 docco -l classic -o "docs" index.md README.md
+docco -l classic -o "docs/apg-api" apg-api/*.js
+docco -l classic -o "docs/apg-api/webpage" apg-api/webpage/*.js
+docco -l classic -o "docs/apg-conv" apg-conv/*.md
+docco -l classic -o "docs/apg-conv-api" apg-conv-api/*.js
+docco -l classic -o "docs/apg-conv-api/webpage" apg-conv-api/webpage/*.js
 docco -l classic -o "docs/apg-exp" apg-exp/*.js
+docco -l classic -o "docs/apg-exp/webpage" apg-exp/webpage/*.js
+docco -l classic -o "docs/apg-html" apg-html/*.md
 docco -l classic -o "docs/ast" ast/*.js
 docco -l classic -o "docs/back-reference" back-reference/*.js
 docco -l classic -o "docs/execute-rule" execute-rule/*.js
@@ -8,7 +15,7 @@ docco -l classic -o "docs/ini-file" ini-file/*.js
 docco -l classic -o "docs/look-ahead" look-ahead/*.js
 docco -l classic -o "docs/look-behind" look-behind/*.js
 docco -l classic -o "docs/simple" simple/*.js
-docco -l classic -o "docs/simple/browser" simple/browser/setup.js
+docco -l classic -o "docs/simple/webpage" simple/webpage/setup.js
 docco -l classic -o "docs/substrings" substrings/*.js
 docco -l classic -o "docs/trace" trace/*.js
 docco -l classic -o "docs/udt" udt/*.js

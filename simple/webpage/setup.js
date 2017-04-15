@@ -105,8 +105,6 @@ var setup = function() {
       }
     }
     // Define which rules the parser will call callback functions for.
-    // (*HINT: the generated grammar object,
-    // [`phone-number.js`](./phone-number.html) in this case, will have a pre-defined `callbacks` array for all rule names.*)
     parser.callbacks["phone-number"] = phoneNumber;
     parser.callbacks["area-code"] = areaCode;
     parser.callbacks["office"] = office;

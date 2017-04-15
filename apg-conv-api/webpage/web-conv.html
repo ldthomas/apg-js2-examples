@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>web-conv</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../weblinks/apg-lib-min.css">
+</head>
+<body onload="onload()">
+<h1>Test the bundled apg-conv API</h1>
+<p>Have a look at "web-conv.html" & "web-conv.js" to see how it is used.</p>
+<p>Click on any of the gray buttons to enter test input into the textarea.<br>
+Then click the "translate" button to see the translated result.</p>
+  <p class="title">
+    <b>input:</b>
+  </p>
+  <textarea id="input" rows="20" cols="75" style="float: left;"></textarea>
+  <p>&nbsp;&nbsp;<input type="button" value="ASCII" style="width: 100px;" onclick="ascii()"></p>
+  <p>&nbsp;&nbsp;<input type="button" value="BINARY" style="width: 100px;" onclick="binary()"></p>
+  <p>&nbsp;&nbsp;<input type="button" value="CHEROKEE" style="width: 100px;" onclick="cherokee()"></p>
+  <p>&nbsp;&nbsp;<input type="button" value="CARDS" style="width: 100px;" onclick="cards()"></p>
+  <p>&nbsp;&nbsp;<input type="button" value="BASE64" style="width: 100px;" onclick="base64()"></p>
+  <br>
+  <p>&nbsp;&nbsp;<input type="button" value="TRANSLATE" style="width: 100px; background: lightskyblue;" onclick="trans()"></p>
+  <p class="title" style="clear: left;">
+    <br><b>output:</b>
+  </p>
+  <div id="output">Translation will appear here.</div>
+  <script src="../../weblinks/apg-conv-api-min.js"></script>
+  <script src="./web-conv.js" charset="utf-8"></script>
+</body>
+</html>

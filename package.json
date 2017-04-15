@@ -2,7 +2,6 @@
   "name": "apg-examples",
   "version": "2.2.0",
   "description": "Numerous examples of using apg, apg-lib and apg-exp.",
-  "main": "index.js",
   "scripts": {
     "test": "node ./ast/xml.js",
     "apg-help": "apg -h",
@@ -12,12 +11,15 @@
     "apg-rules": "apg --in=./apg/multiple-rules.bnf",
     "apg-attributes": "apg --in=./apg/attr-errors.bnf",
     "apg-multi": "apg -i ./apg/first.bnf,./apg/second.bnf -o multi.js",
-    "apg-multiple": "apg -i ./apg/first.bnf --in=./apg/second.bnf --out=multiple.js"
+    "apg-multiple": "apg -i ./apg/first.bnf --in=./apg/second.bnf --out=multiple.js",
+    "apg-conv-api": "node ./apg-conv-api/test-suite $1"
   },
   "files": [
     "apg",
-    "apg-html",
+    "apg-conv",
+    "apg-conv-api",
     "apg-exp",
+    "apg-html",
     "ast",
     "back-reference",
     "execute-rule",
@@ -28,13 +30,16 @@
     "substrings",
     "trace",
     "udt",
+    "weblinks",
     "writeHtml.js",
     "index.md",
     "docco-gen"
   ],
   "dependencies": {
     "apg-lib": "3.x",
-    "apg-exp": "2.x"
+    "apg-exp": "2.x",
+    "apg-api": "1.x",
+    "apg-conv-api": "1.x"
   },
   "keywords": [
     "apg",

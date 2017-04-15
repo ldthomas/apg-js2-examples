@@ -10,4 +10,6 @@ cmsg
 **node_modules/
 **test/
 **docs/
+**html/
+apg/*.js
 

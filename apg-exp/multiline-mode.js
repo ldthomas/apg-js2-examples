@@ -53,7 +53,7 @@
       console.log(result.toText());
     }
     page = apglib.utils.htmlToPage(html);
-    htmlName = "multiline-mode.html";
+    htmlName = "multiline-mode";
     writeHtml(page, htmlName);
   } catch (e) {
     console.log("EXCEPTION: " + e.message);

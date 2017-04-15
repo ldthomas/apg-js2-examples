@@ -35,9 +35,6 @@
       if(result === null){
         break;
       }
-      if(result[0] === ""){
-        exp.lastIndex += 1;
-      }
       console.log("field: "+result[0]);
     }
     // This pass will use the SABNF grammar to distinguish between quoted and non-quoted fields.
@@ -53,9 +50,6 @@
       if(result === null){
         break;
       }
-      if(result[0] === ""){
-        exp.lastIndex += 1;
-      }
       if(result.rules['quoted-text']){
         if(result.rules['double-quote']){
           // Replace the double quote with a single quote using the built-in JavaScript `replace()` function.
@@ -66,6 +60,7 @@
           // Note that in the SABNF syntax `%d34` represents a double quote, character code 34.
           // (Yes, the constructor should be outside of the loop, but I wanted it explicitly displayed here
           // for clarity.)
+          debugger;
           var rrexp = new apgexp('rule = 2%d34\n', "g");
           rstr = rrexp.replace(phrase, '"');
           console.log("value: "+rstr + " : apg-exp replacement function");

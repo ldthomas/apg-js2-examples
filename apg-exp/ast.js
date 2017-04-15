@@ -100,7 +100,7 @@
     html += "<h3>input string</h3>\n";
     html += "<pre>" + str + "</pre>\n";
     html += "<h3>floating point numbers</h3>\n";
-    html += '<table class="' + apglib.utils.styleNames.CLASS_RIGHT_TABLE + '">\n';
+    html += '<table class="' + apglib.style.CLASS_STATS + '">\n';
     html += "<tr><th>result[0]</th><th>normal form</th></tr>\n";
     console.log();
     console.log("apg-exp result:");
@@ -130,7 +130,7 @@
     html += "<pre>" + str + "</pre>\n";
     /* finally, write the HTML page */
     page = apglib.utils.htmlToPage(html);
-    htmlName = "ast.html";
+    htmlName = "ast";
     writeHtml(page, htmlName);
   } catch (e) {
     console.log("EXCEPTION: " + e.message);
