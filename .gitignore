@@ -9,7 +9,6 @@ cmsg
 **node_modules/
 **test/
 **docs/
-**html/
 **nbproject/
 apg/*.js
 

@@ -1,0 +1,6 @@
+line = [begin-comment] text
+begin-comment = "//"
+text = other-text / comment-text
+comment-text = 1*vchar
+other-text = !!begin-comment 1*vchar
+vchar = %d32-126
