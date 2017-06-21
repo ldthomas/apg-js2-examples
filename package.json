@@ -1,6 +1,6 @@
 {
   "name": "apg-examples",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Numerous examples of using apg, apg-lib and apg-exp.",
   "scripts": {
     "test": "node ./ast/xml.js",
@@ -36,7 +36,7 @@
     "docco-gen"
   ],
   "dependencies": {
-    "apg-lib": "3.1.x",
+    "apg-lib": "3.2.x",
     "apg-exp": "2.1.x",
     "apg-api": "1.0.x",
     "apg-conv-api": "1.0.x"

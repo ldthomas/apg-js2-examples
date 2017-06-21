@@ -13,4 +13,7 @@ cp ../apg-exp/apg-exp-min.js ./weblinks
 cp ../apg-exp/apg-exp.js ./weblinks
 cp ../apg-exp/apg-exp-min.css ./weblinks
 cp ../apg-exp/apg-exp.css ./weblinks
+cp ../apg-html/build/tree-bundle.js ./weblinks
+cp ../apg-html/build/tree.css ./weblinks
+cp ../apg-html/js/tree-save.js ./weblinks
 exit 0
