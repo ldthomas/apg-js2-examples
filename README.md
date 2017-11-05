@@ -14,7 +14,7 @@ This repository contains a number of detailed examples demonstrating how to use:
 ```
 git clone https://github.com/ldthomas/apg-js2-examples.git examples
 cd examples 
-npm install --save
+npm install
 ```
 **APG Examples:**  
 In the package.json are the scripts:
