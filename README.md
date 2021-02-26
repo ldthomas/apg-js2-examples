@@ -44,7 +44,7 @@ npm install -g docco
 ./docco-gen
 ```
 View `docs/index.html` in any web browser to get started.
-Or view it on the [APG website](http://coasttocoastresearch.com/docjs2/apg-examples/index.html)
+Or view it on the [APG website](https://sabnf.com)
 
 **Copyright:**  
 *Copyright &copy; 2017 Lowell D. Thomas, all rights reserved*  
